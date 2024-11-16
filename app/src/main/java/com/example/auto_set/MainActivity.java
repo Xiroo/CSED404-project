@@ -1,6 +1,9 @@
 package com.example.auto_set;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -80,8 +83,10 @@ public class MainActivity extends AppCompatActivity {
                         List<String> hours = new ArrayList<>();
                         if (hourFiles != null) {
                             for (File hourFile : hourFiles) {
-                                if (hourFile.isFile()) {
+                                if (hourFile.isFile() && hourFile.getName().endsWith(".csv")) {
                                     String fileInfo = hourFile.getName() + " (" + (hourFile.length() / 1024) + " KB)";
+                                    int rowCount = countCsvRows(hourFile);
+                                    fileInfo += ", Rows: " + rowCount;
                                     hours.add(fileInfo);
                                 }
                             }
@@ -106,6 +111,18 @@ public class MainActivity extends AppCompatActivity {
         fileListView.setAdapter(adapter);
     }
 
+    private int countCsvRows(File csvFile) {
+        int rowCount = 0;
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+            while (br.readLine() != null) {
+                rowCount++;
+            }
+        } catch (IOException e) {
+            Log.e("MainActivity", "Error reading file: " + csvFile.getName(), e);
+        }
+        return rowCount;
+    }
+
     private List<Map<String, String>> createGroupList(List<String> dateList) {
         List<Map<String, String>> groupList = new ArrayList<>();
         for (String date : dateList) {
@@ -124,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
             if (hours != null) {
                 for (String hour : hours) {
                     Map<String, String> child = new HashMap<>();
-                    child.put("HOUR", hour); // Include file size information
+                    child.put("HOUR", hour); // Include file size and row count information
                     childItemList.add(child);
                 }
             }
