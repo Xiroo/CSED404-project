@@ -38,6 +38,10 @@ public class MainActivity extends AppCompatActivity {
     private float currentPressure = Float.NaN; // Barometer value
     private float[] linearAccelerationValues = new float[3]; // Linear acceleration values (X, Y, Z)
 
+    private double currentAltitude = 0.0; // Altitude starting at 0 meters
+    private double verticalVelocity = 0.0; // Vertical velocity (initially zero)
+    private long lastUpdateTime = -1; // Last update timestamp for integration
+
     private Handler handler = new Handler();
     private Runnable locationRunnable;
 
@@ -113,15 +117,55 @@ public class MainActivity extends AppCompatActivity {
     private SensorEventListener sensorListener = new SensorEventListener() {
         @Override
         public void onSensorChanged(SensorEvent event) {
+            long currentTime = System.currentTimeMillis();
+
             switch (event.sensor.getType()) {
                 case Sensor.TYPE_GRAVITY:
                     System.arraycopy(event.values, 0, gravityValues, 0, event.values.length);
                     break;
+
                 case Sensor.TYPE_PRESSURE:
                     currentPressure = event.values[0];
                     break;
+
                 case Sensor.TYPE_LINEAR_ACCELERATION:
                     System.arraycopy(event.values, 0, linearAccelerationValues, 0, event.values.length);
+
+                    // Calculate magnitude of gravity vector
+                    double gravityMagnitude = Math.sqrt(
+                            gravityValues[0] * gravityValues[0] +
+                                    gravityValues[1] * gravityValues[1] +
+                                    gravityValues[2] * gravityValues[2]
+                    );
+
+                    // Ensure gravity magnitude is not zero to avoid division by zero
+                    if (gravityMagnitude != 0) {
+                        // Calculate dot product of linear acceleration and gravity vectors
+                        double dotProduct = linearAccelerationValues[0] * gravityValues[0] +
+                                linearAccelerationValues[1] * gravityValues[1] +
+                                linearAccelerationValues[2] * gravityValues[2];
+
+                        // Calculate the vertical component of linear acceleration
+                        double verticalAcceleration = dotProduct / gravityMagnitude;
+
+                        // Reverse the sign to match the direction of gravity:
+                        // Negative when going up, positive when going down
+                        verticalAcceleration *= -1;
+
+                        // Update altitude calculation based on vertical component of acceleration
+                        if (lastUpdateTime != -1) {
+                            long deltaTime = currentTime - lastUpdateTime; // Time difference in milliseconds
+                            double deltaTimeSeconds = deltaTime / 1000.0; // Convert to seconds
+
+                            // Integrate to find velocity (v = v0 + a * t)
+                            verticalVelocity += verticalAcceleration * deltaTimeSeconds;
+
+                            // Integrate to find altitude (h = h0 + v * t)
+                            currentAltitude += verticalVelocity * deltaTimeSeconds;
+                        }
+                    }
+
+                    lastUpdateTime = currentTime;
                     break;
             }
         }
@@ -130,7 +174,6 @@ public class MainActivity extends AppCompatActivity {
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
         }
     };
-
     private void saveLocationToFile(Location location) {
         File baseDir = getExternalFilesDir(null); // App-specific directory
         if (baseDir == null) {
@@ -160,12 +203,11 @@ public class MainActivity extends AppCompatActivity {
         try (FileWriter writer = new FileWriter(file, true)) {
             // Add header if it's a new file
             if (isNewFile) {
-                String header = "timestamp,latitude,longitude,speed,gravity_x,gravity_y,gravity_z,pressure,linear_accel_x,linear_accel_y,linear_accel_z\n";
+                String header = "timestamp(ms),latitude(deg),longitude(deg),speed(m/s),gravity_x(m/s^2),gravity_y(m/s^2),gravity_z(m/s^2),pressure(hPa),linear_accel_x(m/s^2),linear_accel_y(m/s^2),linear_accel_z(m/s^2),altitude(m)\n";
                 writer.append(header);
             }
 
-            // Write the data row
-            String data = String.format(Locale.getDefault(), "%d,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",
+            String data = String.format(Locale.getDefault(), "%d,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",
                     System.currentTimeMillis(),
                     location.getLatitude(),
                     location.getLongitude(),
@@ -176,7 +218,8 @@ public class MainActivity extends AppCompatActivity {
                     currentPressure,  // Air pressure
                     linearAccelerationValues[0], // Linear acceleration X
                     linearAccelerationValues[1], // Linear acceleration Y
-                    linearAccelerationValues[2]  // Linear acceleration Z
+                    linearAccelerationValues[2], // Linear acceleration Z
+                    currentAltitude // Calculated Altitude
             );
             writer.append(data);
             Log.i("GPSDataCollection", String.format("File write in %s", filePath));
