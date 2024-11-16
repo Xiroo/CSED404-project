@@ -221,8 +221,9 @@ public class DataCollectionService extends Service {
         return new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle("Data Collection in Progress")
                 .setContentText("Collecting location and sensor data...")
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setSmallIcon(R.drawable.ic_launcher_foreground) // Ensure this icon exists and is correct
                 .setContentIntent(pendingIntent)
+                .setPriority(NotificationCompat.PRIORITY_HIGH) // Set priority to high to ensure visibility
                 .build();
     }
 
@@ -231,9 +232,13 @@ public class DataCollectionService extends Service {
             NotificationChannel channel = new NotificationChannel(
                     CHANNEL_ID,
                     "Data Collection Service Channel",
-                    NotificationManager.IMPORTANCE_DEFAULT);
+                    NotificationManager.IMPORTANCE_HIGH // Use IMPORTANCE_HIGH for foreground services
+            );
+            channel.setDescription("Channel for data collection service");
             NotificationManager manager = getSystemService(NotificationManager.class);
-            manager.createNotificationChannel(channel);
+            if (manager != null) {
+                manager.createNotificationChannel(channel);
+            }
         }
     }
 
