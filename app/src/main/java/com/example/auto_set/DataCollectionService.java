@@ -6,6 +6,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Sensor;
@@ -15,6 +16,8 @@ import android.hardware.SensorManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -27,9 +30,19 @@ import androidx.core.app.NotificationCompat;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationRequest;
+
+import android.bluetooth.BluetoothAdapter;
+import android.media.AudioManager;
 
 public class DataCollectionService extends Service {
 
@@ -52,6 +65,10 @@ public class DataCollectionService extends Service {
     private Handler handler = new Handler();
     private Runnable locationRunnable;
 
+    private FusedLocationProviderClient fusedLocationClient;
+    private LocationCallback locationCallback;
+    private LocationRequest locationRequest;
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -67,6 +84,10 @@ public class DataCollectionService extends Service {
 
         createNotificationChannel();
         startForeground(1, getNotification());
+
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        createLocationRequest();
+        startFusedLocationUpdates();
     }
 
     private void registerSensors() {
@@ -127,33 +148,12 @@ public class DataCollectionService extends Service {
 
                 case Sensor.TYPE_PRESSURE:
                     currentPressure = event.values[0];
+                    calculateAltitude();
                     break;
 
                 case Sensor.TYPE_LINEAR_ACCELERATION:
                     System.arraycopy(event.values, 0, linearAccelerationValues, 0, event.values.length);
-
-                    double gravityMagnitude = Math.sqrt(gravityValues[0] * gravityValues[0] +
-                            gravityValues[1] * gravityValues[1] +
-                            gravityValues[2] * gravityValues[2]);
-
-                    if (gravityMagnitude != 0) {
-                        double dotProduct = linearAccelerationValues[0] * gravityValues[0] +
-                                linearAccelerationValues[1] * gravityValues[1] +
-                                linearAccelerationValues[2] * gravityValues[2];
-
-                        double verticalAcceleration = dotProduct / gravityMagnitude;
-                        verticalAcceleration *= -1;
-
-                        if (lastUpdateTime != -1) {
-                            long deltaTime = currentTime - lastUpdateTime;
-                            double deltaTimeSeconds = deltaTime / 1000.0;
-
-                            verticalVelocity += verticalAcceleration * deltaTimeSeconds;
-                            currentAltitude += verticalVelocity * deltaTimeSeconds;
-                        }
-                    }
-
-                    lastUpdateTime = currentTime;
+                    calculateVerticalVelocity(currentTime);
                     break;
             }
         }
@@ -162,6 +162,37 @@ public class DataCollectionService extends Service {
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
         }
     };
+
+    private void calculateAltitude() {
+        if (!Float.isNaN(currentPressure)) {
+            currentAltitude = SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, currentPressure);
+        }
+    }
+
+    private void calculateVerticalVelocity(long currentTime) {
+        double gravityMagnitude = Math.sqrt(gravityValues[0] * gravityValues[0] +
+                gravityValues[1] * gravityValues[1] +
+                gravityValues[2] * gravityValues[2]);
+
+        if (gravityMagnitude != 0) {
+            double dotProduct = linearAccelerationValues[0] * gravityValues[0] +
+                    linearAccelerationValues[1] * gravityValues[1] +
+                    linearAccelerationValues[2] * gravityValues[2];
+
+            double verticalAcceleration = dotProduct / gravityMagnitude;
+            verticalAcceleration *= -1;
+
+            if (lastUpdateTime != -1) {
+                long deltaTime = currentTime - lastUpdateTime;
+                double deltaTimeSeconds = deltaTime / 1000.0;
+
+                verticalVelocity += verticalAcceleration * deltaTimeSeconds;
+                currentAltitude += verticalVelocity * deltaTimeSeconds;
+            }
+        }
+
+        lastUpdateTime = currentTime;
+    }
 
     private void saveLocationToFile(Location location) {
         File baseDir = getExternalFilesDir(null);
@@ -190,11 +221,11 @@ public class DataCollectionService extends Service {
 
         try (FileWriter writer = new FileWriter(file, true)) {
             if (isNewFile) {
-                String header = "timestamp(ms),latitude(deg),longitude(deg),speed(m/s),gravity_x(m/s^2),gravity_y(m/s^2),gravity_z(m/s^2),pressure(hPa),linear_accel_x(m/s^2),linear_accel_y(m/s^2),linear_accel_z(m/s^2),altitude(m)\n";
+                String header = "timestamp(ms),latitude(deg),longitude(deg),speed(m/s),gravity_x(m/s^2),gravity_y(m/s^2),gravity_z(m/s^2),pressure(hPa),linear_accel_x(m/s^2),linear_accel_y(m/s^2),linear_accel_z(m/s^2),altitude(m),wifi_enabled,bluetooth_enabled,silent_mode,mobile_data_enabled\n";
                 writer.append(header);
             }
 
-            String data = String.format(Locale.getDefault(), "%d,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n",
+            String data = String.format(Locale.getDefault(), "%d,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%b,%b,%b,%b\n",
                     System.currentTimeMillis(),
                     location.getLatitude(),
                     location.getLongitude(),
@@ -206,7 +237,11 @@ public class DataCollectionService extends Service {
                     linearAccelerationValues[0],
                     linearAccelerationValues[1],
                     linearAccelerationValues[2],
-                    currentAltitude);
+                    currentAltitude,
+                    isWifiEnabled(),
+                    isBluetoothEnabled(),
+                    isSilentMode(),
+                    isMobileDataEnabled());
             writer.append(data);
             Log.i("GPSDataCollection", String.format("File write in %s", filePath));
         } catch (IOException e) {
@@ -242,16 +277,93 @@ public class DataCollectionService extends Service {
         }
     }
 
+    private void createLocationRequest() {
+        locationRequest = LocationRequest.create();
+        locationRequest.setInterval(5000); // 5 seconds
+        locationRequest.setFastestInterval(2000); // 2 seconds
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+    }
+
+    private void startFusedLocationUpdates() {
+        locationCallback = new LocationCallback() {
+            @Override
+            public void onLocationResult(LocationResult locationResult) {
+                if (locationResult == null) {
+                    return;
+                }
+                for (Location location : locationResult.getLocations()) {
+                    saveLocationToFile(location);
+                }
+            }
+        };
+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            fusedLocationClient.requestLocationUpdates(
+                locationRequest,
+                locationCallback,
+                null
+            );
+        }
+    }
+
     @Override
     public IBinder onBind(Intent intent) {
         return null;
     }
 
     @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        // Start data collection
+        startFusedLocationUpdates();
+        return START_STICKY;
+    }
+
+    @Override
     public void onDestroy() {
         super.onDestroy();
+        // Stop data collection
         handler.removeCallbacks(locationRunnable);
         locationManager.removeUpdates(locationListener);
         sensorManager.unregisterListener(sensorListener);
+        fusedLocationClient.removeLocationUpdates(locationCallback);
+    }
+
+    private boolean isWifiEnabled() {
+        WifiManager wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        return wifiManager.isWifiEnabled();
+    }
+
+    private boolean isBluetoothEnabled() {
+        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        return bluetoothAdapter != null && bluetoothAdapter.isEnabled();
+    }
+
+    private boolean isSilentMode() {
+        AudioManager audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
+        return audioManager.getRingerMode() == AudioManager.RINGER_MODE_SILENT;
+    }
+
+    private boolean isMobileDataEnabled() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        try {
+            Method method = cm.getClass().getDeclaredMethod("getMobileDataEnabled");
+            method.setAccessible(true);
+            return (Boolean) method.invoke(cm);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private void notifySettingsChanged() {
+        Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setContentTitle("Settings Changed")
+                .setContentText("Your device settings have been adjusted based on your location.")
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .build();
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(2, notification);
     }
 }

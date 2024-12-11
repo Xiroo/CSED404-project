@@ -10,11 +10,15 @@ import java.util.List;
 import java.util.Map;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import android.Manifest;
 
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
@@ -22,6 +26,10 @@ import android.widget.SimpleExpandableListAdapter;
 
 public class MainActivity extends AppCompatActivity {
     private ExpandableListView fileListView;
+    private boolean isCollectingData = false;
+    private Button toggleModeButton;
+    private Button adjustSettingsButton;
+    private static final int LOCATION_PERMISSION_REQUEST_CODE = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,19 +37,28 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.i("MainActivity", "onCreate called");
 
-        // Start the DataCollectionService as a foreground service
-        Intent serviceIntent = new Intent(this, DataCollectionService.class);
-        try {
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                Log.i("MainActivity", "Attempting to startForegroundService");
-                startForegroundService(serviceIntent);
-            } else {
-                Log.i("MainActivity", "Attempting to startService");
-                startService(serviceIntent);
-            }
-        } catch (Exception e) {
-            Log.e("MainActivity", "Failed to start service", e);
+        // Request location permissions
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
         }
+
+        // Initialize buttons
+        toggleModeButton = findViewById(R.id.toggleModeButton);
+        adjustSettingsButton = findViewById(R.id.adjustSettingsButton);
+
+        toggleModeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                toggleMode();
+            }
+        });
+
+        adjustSettingsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adjustSettingsBasedOnZones();
+            }
+        });
 
         // Set up the ExpandableListView to view collected files
         fileListView = findViewById(R.id.file_list_view);
@@ -59,6 +76,18 @@ public class MainActivity extends AppCompatActivity {
 
         // No need to stop the service in onDestroy
         // The service should run independently of the activity lifecycle
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, proceed with location updates
+            } else {
+                // Permission denied, handle accordingly
+            }
+        }
     }
 
     private void loadFileData(ExpandableListView fileListView) {
@@ -148,5 +177,66 @@ public class MainActivity extends AppCompatActivity {
             childList.add(childItemList);
         }
         return childList;
+    }
+
+    private void toggleMode() {
+        Intent serviceIntent = new Intent(this, DataCollectionService.class);
+        if (isCollectingData) {
+            stopService(serviceIntent);
+            toggleModeButton.setText("Start Data Collection");
+        } else {
+            startService(serviceIntent);
+            toggleModeButton.setText("Stop Data Collection");
+        }
+        isCollectingData = !isCollectingData;
+    }
+
+    private void adjustSettingsBasedOnZones() {
+        // Load collected data
+        List<Zone> zones = createZonesFromData();
+        
+        // Adjust settings based on zones
+        for (Zone zone : zones) {
+            applySettingsForZone(zone);
+        }
+    }
+
+    private List<Zone> createZonesFromData() {
+        // Implement logic to create zones from collected data
+        // This could involve clustering algorithms or other logic
+        List<Zone> zones = new ArrayList<>();
+        
+        // Example: Create a dummy zone for demonstration
+        zones.add(new Zone(37.7749, -122.4194, true, false, true, false));
+        
+        return zones;
+    }
+
+    private void applySettingsForZone(Zone zone) {
+        // Implement logic to apply settings for a given zone
+        // This could involve enabling/disabling WiFi, Bluetooth, etc.
+        if (zone.isWifiEnabled()) {
+            // Enable WiFi
+        } else {
+            // Disable WiFi
+        }
+
+        if (zone.isBluetoothEnabled()) {
+            // Enable Bluetooth
+        } else {
+            // Disable Bluetooth
+        }
+
+        if (zone.isSilentMode()) {
+            // Set to silent mode
+        } else {
+            // Set to normal mode
+        }
+
+        if (zone.isMobileDataEnabled()) {
+            // Enable mobile data
+        } else {
+            // Disable mobile data
+        }
     }
 }
