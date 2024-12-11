@@ -1,0 +1,34 @@
+package com.example.auto_set;
+
+import android.os.Bundle;
+import androidx.fragment.app.FragmentActivity;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
+
+    private GoogleMap mMap;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_map);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Example: Add a marker for a cluster
+        LatLng clusterLocation = new LatLng(37.7749, -122.4194);
+        mMap.addMarker(new MarkerOptions().position(clusterLocation).title("Cluster Settings: WiFi On, Bluetooth Off"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(clusterLocation, 10));
+    }
+} 

@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private Button toggleModeButton;
     private Button adjustSettingsButton;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 100;
+    private ClusterView clusterView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +74,20 @@ public class MainActivity extends AppCompatActivity {
                 loadFileData(fileListView);
             }
         });
+
+        Button checkClustersButton = findViewById(R.id.checkClustersButton);
+        checkClustersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkClustersAroundMe();
+            }
+        });
+
+        clusterView = findViewById(R.id.clusterView);
+
+        // Load and display clusters
+        List<Zone> zones = createZonesFromData();
+        clusterView.setZones(zones);
 
         // No need to stop the service in onDestroy
         // The service should run independently of the activity lifecycle
@@ -202,14 +217,118 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private List<Zone> createZonesFromData() {
-        // Implement logic to create zones from collected data
-        // This could involve clustering algorithms or other logic
-        List<Zone> zones = new ArrayList<>();
-        
-        // Example: Create a dummy zone for demonstration
-        zones.add(new Zone(37.7749, -122.4194, true, false, true, false));
-        
+        List<DataPoint> dataPoints = loadDataPoints();
+        List<Zone> zones = clusterDataPoints(dataPoints);
         return zones;
+    }
+
+    private List<DataPoint> loadDataPoints() {
+        List<DataPoint> dataPoints = new ArrayList<>();
+        File baseDir = getExternalFilesDir(null);
+        if (baseDir == null) {
+            Log.e("MainActivity", "Failed to access base directory.");
+            return dataPoints;
+        }
+
+        File gpsDataDir = new File(baseDir, "gps_data");
+        if (gpsDataDir.exists() && gpsDataDir.isDirectory()) {
+            File[] dateDirs = gpsDataDir.listFiles();
+            if (dateDirs != null) {
+                for (File dateDir : dateDirs) {
+                    if (dateDir.isDirectory()) {
+                        File[] hourFiles = dateDir.listFiles();
+                        if (hourFiles != null) {
+                            for (File hourFile : hourFiles) {
+                                if (hourFile.isFile() && hourFile.getName().endsWith(".csv")) {
+                                    dataPoints.addAll(parseCsvFile(hourFile));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return dataPoints;
+    }
+
+    private List<DataPoint> parseCsvFile(File csvFile) {
+        List<DataPoint> dataPoints = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+            String line;
+            br.readLine(); // Skip header
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                if (values.length >= 16) {
+                    double latitude = Double.parseDouble(values[1]);
+                    double longitude = Double.parseDouble(values[2]);
+                    boolean wifiEnabled = Boolean.parseBoolean(values[12]);
+                    boolean bluetoothEnabled = Boolean.parseBoolean(values[13]);
+                    boolean silentMode = Boolean.parseBoolean(values[14]);
+                    boolean mobileDataEnabled = Boolean.parseBoolean(values[15]);
+                    dataPoints.add(new DataPoint(latitude, longitude, wifiEnabled, bluetoothEnabled, silentMode, mobileDataEnabled));
+                }
+            }
+        } catch (IOException e) {
+            Log.e("MainActivity", "Error reading file: " + csvFile.getName(), e);
+        }
+        return dataPoints;
+    }
+
+    private List<Zone> clusterDataPoints(List<DataPoint> dataPoints) {
+        double eps = 0.001; // Define a suitable epsilon value
+        int minPts = 5; // Define a suitable minimum number of points
+
+        List<Zone> zones = new ArrayList<>();
+        List<DataPoint> visited = new ArrayList<>();
+        List<DataPoint> noise = new ArrayList<>();
+
+        for (DataPoint point : dataPoints) {
+            if (visited.contains(point)) continue;
+            visited.add(point);
+
+            List<DataPoint> neighbors = getNeighbors(point, dataPoints, eps);
+            if (neighbors.size() < minPts) {
+                noise.add(point);
+            } else {
+                Zone zone = new Zone();
+                expandCluster(point, neighbors, zone, dataPoints, visited, eps, minPts);
+                zones.add(zone);
+            }
+        }
+        return zones;
+    }
+
+    private void expandCluster(DataPoint point, List<DataPoint> neighbors, Zone zone, List<DataPoint> dataPoints, List<DataPoint> visited, double eps, int minPts) {
+        zone.addPoint(point);
+        for (int i = 0; i < neighbors.size(); i++) {
+            DataPoint neighbor = neighbors.get(i);
+            if (!visited.contains(neighbor)) {
+                visited.add(neighbor);
+                List<DataPoint> neighborNeighbors = getNeighbors(neighbor, dataPoints, eps);
+                if (neighborNeighbors.size() >= minPts) {
+                    neighbors.addAll(neighborNeighbors);
+                }
+            }
+            if (!zone.contains(neighbor)) {
+                zone.addPoint(neighbor);
+            }
+        }
+    }
+
+    private List<DataPoint> getNeighbors(DataPoint point, List<DataPoint> dataPoints, double eps) {
+        List<DataPoint> neighbors = new ArrayList<>();
+        for (DataPoint other : dataPoints) {
+            if (distance(point, other) <= eps) {
+                neighbors.add(other);
+            }
+        }
+        return neighbors;
+    }
+
+    private double distance(DataPoint p1, DataPoint p2) {
+        double latDiff = p1.latitude - p2.latitude;
+        double lonDiff = p1.longitude - p2.longitude;
+        return Math.sqrt(latDiff * latDiff + lonDiff * lonDiff);
     }
 
     private void applySettingsForZone(Zone zone) {
@@ -238,5 +357,33 @@ public class MainActivity extends AppCompatActivity {
         } else {
             // Disable mobile data
         }
+    }
+
+    private void checkClustersAroundMe() {
+        // Implement logic to check clusters around the user's current location
+        // This could involve filtering the zones based on proximity to the current location
+        // For demonstration, let's log the clusters
+        List<Zone> zones = createZonesFromData();
+        for (Zone zone : zones) {
+            Log.i("MainActivity", "Cluster at: " + zone.getLatitude() + ", " + zone.getLongitude());
+        }
+    }
+}
+
+class DataPoint {
+    double latitude;
+    double longitude;
+    boolean wifiEnabled;
+    boolean bluetoothEnabled;
+    boolean silentMode;
+    boolean mobileDataEnabled;
+
+    public DataPoint(double latitude, double longitude, boolean wifiEnabled, boolean bluetoothEnabled, boolean silentMode, boolean mobileDataEnabled) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.wifiEnabled = wifiEnabled;
+        this.bluetoothEnabled = bluetoothEnabled;
+        this.silentMode = silentMode;
+        this.mobileDataEnabled = mobileDataEnabled;
     }
 }
