@@ -24,6 +24,13 @@ import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.SimpleExpandableListAdapter;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
+import android.location.Location;
+
+import com.example.auto_set.DataPoint;
+
 public class MainActivity extends AppCompatActivity {
     private ExpandableListView fileListView;
     private boolean isCollectingData = false;
@@ -31,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
     private Button adjustSettingsButton;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 100;
     private ClusterView clusterView;
+    private FusedLocationProviderClient fusedLocationClient;
+    private double currentLatitude;
+    private double currentLongitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,9 +48,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.i("MainActivity", "onCreate called");
 
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
         // Request location permissions
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
+        } else {
+            getLastKnownLocation();
         }
 
         // Initialize buttons
@@ -79,18 +93,16 @@ public class MainActivity extends AppCompatActivity {
         checkClustersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                checkClustersAroundMe();
+                List<Zone> zones = createZonesFromData();
+                Intent intent = new Intent(MainActivity.this, ClusterMapActivity.class);
+                intent.putParcelableArrayListExtra("zones", new ArrayList<>(zones));
+                intent.putExtra("currentLatitude", currentLatitude);
+                intent.putExtra("currentLongitude", currentLongitude);
+                startActivity(intent);
             }
         });
 
         clusterView = findViewById(R.id.clusterView);
-
-        // Load and display clusters
-        List<Zone> zones = createZonesFromData();
-        clusterView.setZones(zones);
-
-        // No need to stop the service in onDestroy
-        // The service should run independently of the activity lifecycle
     }
 
     @Override
@@ -219,6 +231,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Zone> createZonesFromData() {
         List<DataPoint> dataPoints = loadDataPoints();
         List<Zone> zones = clusterDataPoints(dataPoints);
+        Log.i("MainActivity", "Zones created: " + zones.size());
         return zones;
     }
 
@@ -275,8 +288,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private List<Zone> clusterDataPoints(List<DataPoint> dataPoints) {
-        double eps = 0.001; // Define a suitable epsilon value
-        int minPts = 5; // Define a suitable minimum number of points
+        double eps = 0.5; // Adjusted epsilon value for combined distance
+        int minPts = 5;
 
         List<Zone> zones = new ArrayList<>();
         List<DataPoint> visited = new ArrayList<>();
@@ -290,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
             if (neighbors.size() < minPts) {
                 noise.add(point);
             } else {
-                Zone zone = new Zone();
+                Zone zone = new Zone(point.latitude, point.longitude, point.wifiEnabled, point.bluetoothEnabled, point.silentMode, point.mobileDataEnabled);
                 expandCluster(point, neighbors, zone, dataPoints, visited, eps, minPts);
                 zones.add(zone);
             }
@@ -326,9 +339,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private double distance(DataPoint p1, DataPoint p2) {
+        // Geographic distance
         double latDiff = p1.latitude - p2.latitude;
         double lonDiff = p1.longitude - p2.longitude;
-        return Math.sqrt(latDiff * latDiff + lonDiff * lonDiff);
+        double geoDistance = Math.sqrt(latDiff * latDiff + lonDiff * lonDiff);
+
+        // Settings distance
+        double settingsDistance = 0;
+        if (p1.wifiEnabled != p2.wifiEnabled) settingsDistance += 1;
+        if (p1.bluetoothEnabled != p2.bluetoothEnabled) settingsDistance += 1;
+        if (p1.silentMode != p2.silentMode) settingsDistance += 1;
+        if (p1.mobileDataEnabled != p2.mobileDataEnabled) settingsDistance += 1;
+
+        // Combine distances with weights
+        double weightGeo = 0.7; // Weight for geographic distance
+        double weightSettings = 0.3; // Weight for settings distance
+
+        return weightGeo * geoDistance + weightSettings * settingsDistance;
     }
 
     private void applySettingsForZone(Zone zone) {
@@ -360,30 +387,38 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkClustersAroundMe() {
-        // Implement logic to check clusters around the user's current location
-        // This could involve filtering the zones based on proximity to the current location
-        // For demonstration, let's log the clusters
-        List<Zone> zones = createZonesFromData();
-        for (Zone zone : zones) {
-            Log.i("MainActivity", "Cluster at: " + zone.getLatitude() + ", " + zone.getLongitude());
-        }
+        Log.i("MainActivity", "checkClustersAroundMe called");
+        fusedLocationClient.getLastLocation()
+            .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+                    if (location != null) {
+                        Log.i("MainActivity", "Location retrieved: " + location.getLatitude() + ", " + location.getLongitude());
+                        double currentLatitude = location.getLatitude();
+                        double currentLongitude = location.getLongitude();
+                        List<Zone> zones = createZonesFromData();
+                        clusterView.setZones(zones);
+                        clusterView.setCurrentLocation(currentLatitude, currentLongitude);
+                    } else {
+                        Log.e("MainActivity", "Location is null");
+                    }
+                }
+            });
     }
-}
 
-class DataPoint {
-    double latitude;
-    double longitude;
-    boolean wifiEnabled;
-    boolean bluetoothEnabled;
-    boolean silentMode;
-    boolean mobileDataEnabled;
-
-    public DataPoint(double latitude, double longitude, boolean wifiEnabled, boolean bluetoothEnabled, boolean silentMode, boolean mobileDataEnabled) {
-        this.latitude = latitude;
-        this.longitude = longitude;
-        this.wifiEnabled = wifiEnabled;
-        this.bluetoothEnabled = bluetoothEnabled;
-        this.silentMode = silentMode;
-        this.mobileDataEnabled = mobileDataEnabled;
+    private void getLastKnownLocation() {
+        fusedLocationClient.getLastLocation()
+            .addOnSuccessListener(this, new OnSuccessListener<Location>() {
+                @Override
+                public void onSuccess(Location location) {
+                    if (location != null) {
+                        currentLatitude = location.getLatitude();
+                        currentLongitude = location.getLongitude();
+                        Log.i("MainActivity", "Location retrieved: " + currentLatitude + ", " + currentLongitude);
+                    } else {
+                        Log.e("MainActivity", "Location is null");
+                    }
+                }
+            });
     }
 }

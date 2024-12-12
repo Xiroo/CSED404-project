@@ -105,22 +105,30 @@ public class DataCollectionService extends Service {
     }
 
     private void startLocationUpdates() {
-        locationRunnable = new Runnable() {
-            @Override
-            public void run() {
-                if (ActivityCompat.checkSelfPermission(DataCollectionService.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-                    locationManager.requestSingleUpdate(LocationManager.GPS_PROVIDER, locationListener, null);
-                    handler.postDelayed(this, 5000);
-                }
-            }
-        };
-        handler.post(locationRunnable);
+        if (ActivityCompat.checkSelfPermission(this, 
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            // Use both providers for better accuracy
+            locationManager.requestLocationUpdates(
+                LocationManager.GPS_PROVIDER,
+                1000,
+                1,
+                locationListener
+            );
+            locationManager.requestLocationUpdates(
+                LocationManager.NETWORK_PROVIDER,
+                1000,
+                1,
+                locationListener
+            );
+        }
     }
 
     private LocationListener locationListener = new LocationListener() {
         @Override
         public void onLocationChanged(@NonNull Location location) {
-            saveLocationToFile(location);
+            if (location.getAccuracy() <= 10) {
+                saveLocationToFile(location);
+            }
         }
 
         @Override
@@ -279,9 +287,10 @@ public class DataCollectionService extends Service {
 
     private void createLocationRequest() {
         locationRequest = LocationRequest.create();
-        locationRequest.setInterval(5000); // 5 seconds
-        locationRequest.setFastestInterval(2000); // 2 seconds
+        locationRequest.setInterval(1000); // Update every 1 second
+        locationRequest.setFastestInterval(500); // Fastest update interval 500ms
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        locationRequest.setSmallestDisplacement(1); // Minimum 1 meter movement
     }
 
     private void startFusedLocationUpdates() {
