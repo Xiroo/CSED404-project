@@ -110,14 +110,14 @@ public class DataCollectionService extends Service {
             // Use both providers for better accuracy
             locationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER,
-                1000,
-                1,
+                1000, // Keep original 1 second interval
+                1,    // Keep original 1 meter minimum distance
                 locationListener
             );
             locationManager.requestLocationUpdates(
                 LocationManager.NETWORK_PROVIDER,
-                1000,
-                1,
+                1000, // Keep original 1 second interval
+                1,    // Keep original 1 meter minimum distance
                 locationListener
             );
         }
@@ -126,7 +126,7 @@ public class DataCollectionService extends Service {
     private LocationListener locationListener = new LocationListener() {
         @Override
         public void onLocationChanged(@NonNull Location location) {
-            if (location.getAccuracy() <= 10) {
+            if (location.getAccuracy() <= 5) { // Only accept locations with accuracy <= 5 meters
                 saveLocationToFile(location);
             }
         }
@@ -287,10 +287,13 @@ public class DataCollectionService extends Service {
 
     private void createLocationRequest() {
         locationRequest = LocationRequest.create();
-        locationRequest.setInterval(1000); // Update every 1 second
-        locationRequest.setFastestInterval(500); // Fastest update interval 500ms
+        
+        // 1. HIGH_ACCURACY - Highest accuracy, uses GPS + WiFi + Cell
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        locationRequest.setSmallestDisplacement(1); // Minimum 1 meter movement
+
+        locationRequest.setInterval(5000);
+        locationRequest.setFastestInterval(2000);
+        locationRequest.setSmallestDisplacement(1);
     }
 
     private void startFusedLocationUpdates() {
