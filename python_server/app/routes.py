@@ -76,7 +76,7 @@ def predict_settings():
         logging.error("data serialized")
 
         # Define the path to the result.json file
-        json_file_path = os.path.join(os.path.dirname(__file__), "result.json")
+        json_file_path = "app/src/main/assets/results.json"
 
         # Open and read the JSON file
         with open(json_file_path, "r") as json_file:
