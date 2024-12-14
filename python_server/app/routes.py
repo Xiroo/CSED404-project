@@ -31,11 +31,7 @@ def process_data():
 
         vehicle_points, non_vehicle_points = processor.preprocess_data(df)
 
-        vehicle_clusters = processor.cluster_points(
-            vehicle_points, eps=VEHICLE_EPS, min_samples=VEHICLE_MIN_SAMPLES
-        )
-        vehicle_zones = processor.create_zones(vehicle_clusters, is_vehicle=True)
-
+        # Process non-vehicle points and create hulls
         non_vehicle_clusters = processor.cluster_points(
             non_vehicle_points, eps=NON_VEHICLE_EPS, min_samples=NON_VEHICLE_MIN_SAMPLES
         )
@@ -43,17 +39,18 @@ def process_data():
             non_vehicle_clusters, is_vehicle=False
         )
 
-        all_zones = vehicle_zones + non_vehicle_zones
+        # Extract major settings for vehicle points
+        vehicle_settings = processor.extract_vehicle_settings(vehicle_points)
 
         return jsonify(
             {
-                "zones": all_zones,
-                "vehicleZonesCount": len(vehicle_zones),
-                "nonVehicleZonesCount": len(non_vehicle_zones),
+                "nonVehicleZones": non_vehicle_zones,
+                "vehicleSettings": vehicle_settings,
             }
         )
 
     except Exception as e:
+        logging.error(f"Error processing data: {e}")
         return jsonify({"error": str(e)}), 500
 
 
@@ -65,41 +62,49 @@ def map_view():
 @api.route("/predict_settings", methods=["POST"])
 def predict_settings():
     try:
+        # Get data from the request
         data = request.json
         longitude = data.get("longitude")
         latitude = data.get("latitude")
         altitude = data.get("altitude")
         speed = data.get("speed")
 
-        processor = DataProcessor()
-        df = processor.load_csv_files("app/src/main/assets/gps_data")
-        vehicle_points, non_vehicle_points = processor.preprocess_data(df)
+        # Define the path to the result.json file
+        json_file_path = os.path.join(os.path.dirname(__file__), "result.json")
 
-        vehicle_clusters = processor.cluster_points(
-            vehicle_points, eps=VEHICLE_EPS, min_samples=VEHICLE_MIN_SAMPLES
-        )
-        vehicle_zones = processor.create_zones(vehicle_clusters, is_vehicle=True)
+        # Open and read the JSON file
+        with open(json_file_path, "r") as json_file:
+            zones_data = json.load(json_file)
 
-        non_vehicle_clusters = processor.cluster_points(
-            non_vehicle_points, eps=NON_VEHICLE_EPS, min_samples=NON_VEHICLE_MIN_SAMPLES
-        )
-        non_vehicle_zones = processor.create_zones(
-            non_vehicle_clusters, is_vehicle=False
-        )
+        # Check for a matching zone
+        matching_zone = None
+        for zone in zones_data.get("zones", []):
+            if is_matching_zone(zone, longitude, latitude, altitude, speed):
+                matching_zone = zone
+                break
 
-        all_zones = vehicle_zones + non_vehicle_zones
-
-        predicted_settings = processor.predict_settings(
-            longitude, latitude, altitude, speed, all_zones
-        )
-
-        if predicted_settings:
-            return jsonify(predicted_settings)
+        if matching_zone:
+            return jsonify(matching_zone)
         else:
             return jsonify({"error": "No matching zone found"}), 404
 
+    except FileNotFoundError:
+        return jsonify({"error": "result.json file not found"}), 404
+    except json.JSONDecodeError:
+        return jsonify({"error": "Error decoding JSON"}), 500
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
+def is_matching_zone(zone, longitude, latitude, altitude, speed):
+    # Implement your logic to determine if the zone matches the given parameters
+    # This is a placeholder function; adjust the logic as needed
+    return (
+        zone.get("longitude") == longitude
+        and zone.get("latitude") == latitude
+        and zone.get("altitude") == altitude
+        and zone.get("speed") == speed
+    )
 
 
 @api.route("/upload_csv", methods=["POST"])

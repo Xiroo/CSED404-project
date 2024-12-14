@@ -106,39 +106,57 @@ class DataProcessor:
                 logging.warning(f"No points found for cluster {cluster_id}.")
                 continue
 
-            # Remove duplicate points
-            points = np.unique(
-                cluster_points[["latitude(deg)", "longitude(deg)"]].values, axis=0
-            )
-
-            # Check if there are enough points to form a convex hull
-            if len(points) < 3:
-                logging.warning(
-                    f"Not enough points to form a convex hull for cluster {cluster_id}."
+            if not is_vehicle:
+                # Remove duplicate points
+                points = np.unique(
+                    cluster_points[["latitude(deg)", "longitude(deg)"]].values, axis=0
                 )
-                continue
 
-            try:
-                # Calculate the convex hull
-                hull = ConvexHull(points)
-                hull_points = points[hull.vertices]
-            except Exception as e:
-                logging.error(
-                    f"Error computing convex hull for cluster {cluster_id}: {e}"
-                )
-                continue
+                # Check if there are enough points to form a convex hull
+                if len(points) < 3:
+                    logging.warning(
+                        f"Not enough points to form a convex hull for cluster {cluster_id}."
+                    )
+                    continue
 
-            zone = {
-                "hull": hull_points.tolist(),
-                "wifiEnabled": bool(cluster_points["wifi_enabled"].mode()[0]),
-                "bluetoothEnabled": bool(cluster_points["bluetooth_enabled"].mode()[0]),
-                "silentMode": bool(cluster_points["silent_mode"].mode()[0]),
-                "mobileDataEnabled": bool(
-                    cluster_points["mobile_data_enabled"].mode()[0]
-                ),
-                "isVehicleZone": is_vehicle,
-                "pointCount": len(cluster_points),
-            }
+                try:
+                    # Calculate the convex hull
+                    hull = ConvexHull(points)
+                    hull_points = points[hull.vertices]
+                except Exception as e:
+                    logging.error(
+                        f"Error computing convex hull for cluster {cluster_id}: {e}"
+                    )
+                    continue
+
+                zone = {
+                    "hull": hull_points.tolist(),
+                    "wifiEnabled": bool(cluster_points["wifi_enabled"].mode()[0]),
+                    "bluetoothEnabled": bool(
+                        cluster_points["bluetooth_enabled"].mode()[0]
+                    ),
+                    "silentMode": bool(cluster_points["silent_mode"].mode()[0]),
+                    "mobileDataEnabled": bool(
+                        cluster_points["mobile_data_enabled"].mode()[0]
+                    ),
+                    "isVehicleZone": is_vehicle,
+                    "pointCount": len(cluster_points),
+                }
+            else:
+                # Extract major settings for vehicle points
+                zone = {
+                    "wifiEnabled": bool(cluster_points["wifi_enabled"].mode()[0]),
+                    "bluetoothEnabled": bool(
+                        cluster_points["bluetooth_enabled"].mode()[0]
+                    ),
+                    "silentMode": bool(cluster_points["silent_mode"].mode()[0]),
+                    "mobileDataEnabled": bool(
+                        cluster_points["mobile_data_enabled"].mode()[0]
+                    ),
+                    "isVehicleZone": is_vehicle,
+                    "pointCount": len(cluster_points),
+                }
+
             zones.append(zone)
 
         return zones
@@ -167,16 +185,25 @@ class DataProcessor:
 
         return weight_geo * geo_distance + weight_settings * settings_distance
 
-    def predict_settings(self, longitude, latitude, altitude, zones):
-        """Predict settings based on location"""
-        for zone in zones:
+    def predict_settings(
+        self, longitude, latitude, altitude, speed, non_vehicle_zones, vehicle_settings
+    ):
+        """Predict settings based on location and speed"""
+        if speed > VEHICLE_SPEED_THRESHOLD:
+            # Return settings for vehicle
+            return {
+                **vehicle_settings,
+                "isVehicleZone": True,
+            }
+
+        for zone in non_vehicle_zones:
             if self.is_within_zone(longitude, latitude, altitude, zone):
                 return {
                     "wifiEnabled": zone["wifiEnabled"],
                     "bluetoothEnabled": zone["bluetoothEnabled"],
                     "silentMode": zone["silentMode"],
                     "mobileDataEnabled": zone["mobileDataEnabled"],
-                    "isVehicleZone": zone["isVehicleZone"],
+                    "isVehicleZone": False,
                 }
         return None
 
@@ -190,3 +217,17 @@ class DataProcessor:
             and abs(zone["longitude"] - longitude) < threshold
             and abs(zone["altitude"] - altitude) < altitude_threshold
         )
+
+    def extract_vehicle_settings(self, vehicle_points):
+        """Extract major settings from vehicle points"""
+        if vehicle_points.empty:
+            logging.warning("No vehicle points to process.")
+            return []
+
+        settings = {
+            "wifiEnabled": bool(vehicle_points["wifi_enabled"].mode()[0]),
+            "bluetoothEnabled": bool(vehicle_points["bluetooth_enabled"].mode()[0]),
+            "silentMode": bool(vehicle_points["silent_mode"].mode()[0]),
+            "mobileDataEnabled": bool(vehicle_points["mobile_data_enabled"].mode()[0]),
+        }
+        return settings
