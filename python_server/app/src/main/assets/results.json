@@ -1,0 +1,6352 @@
+{
+    "zones": [
+        {
+            "hull": [
+                [
+                    36.015699,
+                    129.320835
+                ],
+                [
+                    36.015705,
+                    129.320784
+                ],
+                [
+                    36.01574,
+                    129.32073
+                ],
+                [
+                    36.015826,
+                    129.32094
+                ],
+                [
+                    36.015828,
+                    129.320957
+                ],
+                [
+                    36.015821,
+                    129.320981
+                ],
+                [
+                    36.015723,
+                    129.320937
+                ],
+                [
+                    36.015703,
+                    129.320896
+                ],
+                [
+                    36.0157,
+                    129.320886
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 194
+        },
+        {
+            "hull": [
+                [
+                    36.014843,
+                    129.321873
+                ],
+                [
+                    36.014839,
+                    129.321855
+                ],
+                [
+                    36.014858,
+                    129.321779
+                ],
+                [
+                    36.014867,
+                    129.321759
+                ],
+                [
+                    36.015518,
+                    129.320951
+                ],
+                [
+                    36.015641,
+                    129.320815
+                ],
+                [
+                    36.01562,
+                    129.320867
+                ],
+                [
+                    36.015197,
+                    129.32168
+                ],
+                [
+                    36.015183,
+                    129.321705
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 66
+        },
+        {
+            "hull": [
+                [
+                    36.013176,
+                    129.321886
+                ],
+                [
+                    36.014529,
+                    129.321657
+                ],
+                [
+                    36.014562,
+                    129.321662
+                ],
+                [
+                    36.014652,
+                    129.321695
+                ],
+                [
+                    36.014816,
+                    129.321763
+                ],
+                [
+                    36.014857,
+                    129.321792
+                ],
+                [
+                    36.014855,
+                    129.321849
+                ],
+                [
+                    36.012769,
+                    129.322138
+                ],
+                [
+                    36.012793,
+                    129.322121
+                ],
+                [
+                    36.013123,
+                    129.32191
+                ],
+                [
+                    36.013149,
+                    129.321895
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 84
+        },
+        {
+            "hull": [
+                [
+                    36.013234,
+                    129.321921
+                ],
+                [
+                    36.013137,
+                    129.321903
+                ],
+                [
+                    36.013189,
+                    129.321886
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.01255,
+                    129.322164
+                ],
+                [
+                    36.012732,
+                    129.322178
+                ],
+                [
+                    36.012666,
+                    129.32225
+                ],
+                [
+                    36.012623,
+                    129.322222
+                ],
+                [
+                    36.0126,
+                    129.322207
+                ],
+                [
+                    36.01258,
+                    129.322191
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 18
+        },
+        {
+            "hull": [
+                [
+                    36.01255,
+                    129.322164
+                ],
+                [
+                    36.012556,
+                    129.322167
+                ],
+                [
+                    36.012653,
+                    129.32224
+                ],
+                [
+                    36.012666,
+                    129.32225
+                ],
+                [
+                    36.012616,
+                    129.322217
+                ],
+                [
+                    36.012595,
+                    129.322203
+                ],
+                [
+                    36.012575,
+                    129.322187
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.012011,
+                    129.321917
+                ],
+                [
+                    36.011937,
+                    129.322088
+                ],
+                [
+                    36.011932,
+                    129.322093
+                ],
+                [
+                    36.011917,
+                    129.322092
+                ],
+                [
+                    36.0119,
+                    129.322073
+                ],
+                [
+                    36.011896,
+                    129.322046
+                ],
+                [
+                    36.011899,
+                    129.322022
+                ],
+                [
+                    36.011978,
+                    129.321585
+                ],
+                [
+                    36.012007,
+                    129.321694
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 24
+        },
+        {
+            "hull": [
+                [
+                    36.012011,
+                    129.321917
+                ],
+                [
+                    36.011937,
+                    129.322088
+                ],
+                [
+                    36.011932,
+                    129.322093
+                ],
+                [
+                    36.011917,
+                    129.322092
+                ],
+                [
+                    36.0119,
+                    129.322073
+                ],
+                [
+                    36.011896,
+                    129.322046
+                ],
+                [
+                    36.011899,
+                    129.322022
+                ],
+                [
+                    36.011978,
+                    129.321585
+                ],
+                [
+                    36.012007,
+                    129.321694
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 24
+        },
+        {
+            "hull": [
+                [
+                    36.011161,
+                    129.322953
+                ],
+                [
+                    36.01129,
+                    129.321759
+                ],
+                [
+                    36.011549,
+                    129.321577
+                ],
+                [
+                    36.011554,
+                    129.321575
+                ],
+                [
+                    36.012361,
+                    129.321266
+                ],
+                [
+                    36.012746,
+                    129.321274
+                ],
+                [
+                    36.012826,
+                    129.321639
+                ],
+                [
+                    36.012717,
+                    129.321818
+                ],
+                [
+                    36.01213,
+                    129.322393
+                ],
+                [
+                    36.012124,
+                    129.322398
+                ],
+                [
+                    36.012121,
+                    129.3224
+                ],
+                [
+                    36.011986,
+                    129.322479
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 896
+        },
+        {
+            "hull": [
+                [
+                    36.011161,
+                    129.322953
+                ],
+                [
+                    36.01129,
+                    129.321759
+                ],
+                [
+                    36.011549,
+                    129.321577
+                ],
+                [
+                    36.011554,
+                    129.321575
+                ],
+                [
+                    36.012361,
+                    129.321266
+                ],
+                [
+                    36.012746,
+                    129.321274
+                ],
+                [
+                    36.012826,
+                    129.321639
+                ],
+                [
+                    36.012717,
+                    129.321818
+                ],
+                [
+                    36.01213,
+                    129.322393
+                ],
+                [
+                    36.012124,
+                    129.322398
+                ],
+                [
+                    36.012121,
+                    129.3224
+                ],
+                [
+                    36.011986,
+                    129.322479
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 896
+        },
+        {
+            "hull": [
+                [
+                    36.012013,
+                    129.322226
+                ],
+                [
+                    36.011991,
+                    129.322214
+                ],
+                [
+                    36.012008,
+                    129.322218
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.011484,
+                    129.322546
+                ],
+                [
+                    36.011472,
+                    129.322548
+                ],
+                [
+                    36.011473,
+                    129.322547
+                ],
+                [
+                    36.011476,
+                    129.322546
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 15
+        },
+        {
+            "hull": [
+                [
+                    36.01265,
+                    129.32167
+                ],
+                [
+                    36.012766,
+                    129.321708
+                ],
+                [
+                    36.012691,
+                    129.32177
+                ],
+                [
+                    36.012686,
+                    129.32176
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.012763,
+                    129.32171
+                ],
+                [
+                    36.012682,
+                    129.321763
+                ],
+                [
+                    36.012686,
+                    129.321758
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 8
+        },
+        {
+            "hull": [
+                [
+                    36.011757,
+                    129.322364
+                ],
+                [
+                    36.011627,
+                    129.322281
+                ],
+                [
+                    36.011661,
+                    129.322302
+                ],
+                [
+                    36.011693,
+                    129.322322
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 7
+        },
+        {
+            "hull": [
+                [
+                    36.012692,
+                    129.321772
+                ],
+                [
+                    36.012601,
+                    129.321825
+                ],
+                [
+                    36.012688,
+                    129.321758
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 10
+        },
+        {
+            "hull": [
+                [
+                    36.012617,
+                    129.321804
+                ],
+                [
+                    36.01269,
+                    129.321757
+                ],
+                [
+                    36.01268,
+                    129.321765
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.012698,
+                    129.321781
+                ],
+                [
+                    36.012617,
+                    129.321804
+                ],
+                [
+                    36.01269,
+                    129.321758
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.012687,
+                    129.321759
+                ],
+                [
+                    36.012695,
+                    129.321754
+                ],
+                [
+                    36.012687,
+                    129.32176
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.012691,
+                    129.321757
+                ],
+                [
+                    36.012618,
+                    129.321804
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.012667,
+                    129.321774
+                ],
+                [
+                    36.012678,
+                    129.321763
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ],
+                [
+                    36.012686,
+                    129.32176
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 7
+        },
+        {
+            "hull": [
+                [
+                    36.011627,
+                    129.322281
+                ],
+                [
+                    36.011714,
+                    129.322335
+                ],
+                [
+                    36.011698,
+                    129.322403
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.012716,
+                    129.321751
+                ],
+                [
+                    36.012634,
+                    129.321793
+                ],
+                [
+                    36.012686,
+                    129.321757
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 8
+        },
+        {
+            "hull": [
+                [
+                    36.011714,
+                    129.322335
+                ],
+                [
+                    36.011494,
+                    129.322275
+                ],
+                [
+                    36.011575,
+                    129.322261
+                ],
+                [
+                    36.011622,
+                    129.322278
+                ],
+                [
+                    36.011627,
+                    129.322281
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 15
+        },
+        {
+            "hull": [
+                [
+                    36.011714,
+                    129.322335
+                ],
+                [
+                    36.011546,
+                    129.322254
+                ],
+                [
+                    36.011627,
+                    129.322281
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 13
+        },
+        {
+            "hull": [
+                [
+                    36.011714,
+                    129.322335
+                ],
+                [
+                    36.011517,
+                    129.322268
+                ],
+                [
+                    36.011537,
+                    129.322257
+                ],
+                [
+                    36.011627,
+                    129.322281
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 12
+        },
+        {
+            "hull": [
+                [
+                    36.011626,
+                    129.322281
+                ],
+                [
+                    36.011537,
+                    129.322257
+                ],
+                [
+                    36.011544,
+                    129.322252
+                ],
+                [
+                    36.011622,
+                    129.322278
+                ],
+                [
+                    36.011625,
+                    129.32228
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.012684,
+                    129.321761
+                ],
+                [
+                    36.012714,
+                    129.321701
+                ],
+                [
+                    36.012701,
+                    129.321777
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 11
+        },
+        {
+            "hull": [
+                [
+                    36.012687,
+                    129.321758
+                ],
+                [
+                    36.012696,
+                    129.321754
+                ],
+                [
+                    36.012688,
+                    129.321759
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.0126,
+                    129.321584
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ],
+                [
+                    36.012675,
+                    129.321769
+                ],
+                [
+                    36.012652,
+                    129.321733
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.012652,
+                    129.321733
+                ],
+                [
+                    36.012689,
+                    129.321759
+                ],
+                [
+                    36.012685,
+                    129.321761
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.012678,
+                    129.321766
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ],
+                [
+                    36.012684,
+                    129.321762
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 10
+        },
+        {
+            "hull": [
+                [
+                    36.012718,
+                    129.321757
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ],
+                [
+                    36.012697,
+                    129.321758
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.012653,
+                    129.321686
+                ],
+                [
+                    36.012727,
+                    129.321753
+                ],
+                [
+                    36.012694,
+                    129.321772
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.012694,
+                    129.321774
+                ],
+                [
+                    36.012684,
+                    129.321761
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ],
+                [
+                    36.012692,
+                    129.321768
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.012697,
+                    129.321777
+                ],
+                [
+                    36.012659,
+                    129.321781
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 10
+        },
+        {
+            "hull": [
+                [
+                    36.012598,
+                    129.321757
+                ],
+                [
+                    36.01269,
+                    129.321757
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 8
+        },
+        {
+            "hull": [
+                [
+                    36.012693,
+                    129.321771
+                ],
+                [
+                    36.012679,
+                    129.321766
+                ],
+                [
+                    36.012684,
+                    129.321757
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.012688,
+                    129.321759
+                ],
+                [
+                    36.012683,
+                    129.321762
+                ],
+                [
+                    36.012686,
+                    129.321758
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.012698,
+                    129.32178
+                ],
+                [
+                    36.012663,
+                    129.321775
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.012693,
+                    129.321759
+                ],
+                [
+                    36.012589,
+                    129.321836
+                ],
+                [
+                    36.012671,
+                    129.321761
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.012687,
+                    129.321758
+                ],
+                [
+                    36.012691,
+                    129.321756
+                ],
+                [
+                    36.012713,
+                    129.321759
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 11
+        },
+        {
+            "hull": [
+                [
+                    36.012713,
+                    129.321759
+                ],
+                [
+                    36.012683,
+                    129.321762
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.012688,
+                    129.321759
+                ],
+                [
+                    36.012669,
+                    129.321773
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.012687,
+                    129.321759
+                ],
+                [
+                    36.012719,
+                    129.321731
+                ],
+                [
+                    36.012718,
+                    129.321795
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.012691,
+                    129.321758
+                ],
+                [
+                    36.012683,
+                    129.321762
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.012676,
+                    129.321768
+                ],
+                [
+                    36.012623,
+                    129.321809
+                ],
+                [
+                    36.012666,
+                    129.321775
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 13
+        },
+        {
+            "hull": [
+                [
+                    36.012687,
+                    129.321759
+                ],
+                [
+                    36.01259,
+                    129.321835
+                ],
+                [
+                    36.012647,
+                    129.32179
+                ],
+                [
+                    36.012688,
+                    129.321758
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.012687,
+                    129.321759
+                ],
+                [
+                    36.012677,
+                    129.321767
+                ],
+                [
+                    36.012686,
+                    129.321756
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.012644,
+                    129.321672
+                ],
+                [
+                    36.012711,
+                    129.321806
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.012691,
+                    129.321756
+                ],
+                [
+                    36.012609,
+                    129.321827
+                ],
+                [
+                    36.012622,
+                    129.32181
+                ],
+                [
+                    36.012687,
+                    129.321759
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.012689,
+                    129.321763
+                ],
+                [
+                    36.012669,
+                    129.321757
+                ],
+                [
+                    36.012687,
+                    129.32176
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.012121,
+                    129.3224
+                ],
+                [
+                    36.012123,
+                    129.322398
+                ],
+                [
+                    36.01213,
+                    129.322393
+                ],
+                [
+                    36.012124,
+                    129.322398
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.012121,
+                    129.3224
+                ],
+                [
+                    36.01213,
+                    129.322393
+                ],
+                [
+                    36.012124,
+                    129.322398
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.012183,
+                    129.322224
+                ],
+                [
+                    36.012185,
+                    129.322203
+                ],
+                [
+                    36.012194,
+                    129.322208
+                ],
+                [
+                    36.012192,
+                    129.322213
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 8
+        },
+        {
+            "hull": [
+                [
+                    36.012997,
+                    129.325741
+                ],
+                [
+                    36.013001,
+                    129.325744
+                ],
+                [
+                    36.013016,
+                    129.325765
+                ],
+                [
+                    36.013019,
+                    129.325775
+                ],
+                [
+                    36.013016,
+                    129.325774
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 7
+        },
+        {
+            "hull": [
+                [
+                    36.013149,
+                    129.325632
+                ],
+                [
+                    36.013098,
+                    129.325692
+                ],
+                [
+                    36.013131,
+                    129.325649
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.01294,
+                    129.325508
+                ],
+                [
+                    36.012978,
+                    129.325535
+                ],
+                [
+                    36.012974,
+                    129.325583
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.01253,
+                    129.32328
+                ],
+                [
+                    36.012546,
+                    129.323296
+                ],
+                [
+                    36.012645,
+                    129.323422
+                ],
+                [
+                    36.0126,
+                    129.323379
+                ],
+                [
+                    36.012582,
+                    129.323359
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.012503,
+                    129.323244
+                ],
+                [
+                    36.012419,
+                    129.323192
+                ],
+                [
+                    36.012445,
+                    129.323202
+                ],
+                [
+                    36.012466,
+                    129.323214
+                ],
+                [
+                    36.012486,
+                    129.323227
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.012233,
+                    129.323124
+                ],
+                [
+                    36.01239,
+                    129.323186
+                ],
+                [
+                    36.012361,
+                    129.323184
+                ],
+                [
+                    36.012335,
+                    129.323178
+                ],
+                [
+                    36.012284,
+                    129.323162
+                ],
+                [
+                    36.012267,
+                    129.323154
+                ],
+                [
+                    36.012247,
+                    129.323143
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 8
+        },
+        {
+            "hull": [
+                [
+                    36.012203,
+                    129.322985
+                ],
+                [
+                    36.012185,
+                    129.322927
+                ],
+                [
+                    36.012181,
+                    129.322907
+                ],
+                [
+                    36.012178,
+                    129.322884
+                ],
+                [
+                    36.012396,
+                    129.322484
+                ],
+                [
+                    36.01241,
+                    129.322462
+                ],
+                [
+                    36.012458,
+                    129.322397
+                ],
+                [
+                    36.012498,
+                    129.322364
+                ],
+                [
+                    36.012683,
+                    129.3223
+                ],
+                [
+                    36.012689,
+                    129.322302
+                ],
+                [
+                    36.012685,
+                    129.32231
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 33
+        },
+        {
+            "hull": [
+                [
+                    36.01255,
+                    129.322354
+                ],
+                [
+                    36.012427,
+                    129.32244
+                ],
+                [
+                    36.012442,
+                    129.322418
+                ],
+                [
+                    36.012458,
+                    129.322397
+                ],
+                [
+                    36.012498,
+                    129.322364
+                ],
+                [
+                    36.012525,
+                    129.322356
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 7
+        },
+        {
+            "hull": [
+                [
+                    36.012572,
+                    129.322349
+                ],
+                [
+                    36.012585,
+                    129.32234
+                ],
+                [
+                    36.012652,
+                    129.322327
+                ],
+                [
+                    36.012623,
+                    129.322343
+                ],
+                [
+                    36.012611,
+                    129.322348
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 7
+        },
+        {
+            "hull": [
+                [
+                    36.012666,
+                    129.322321
+                ],
+                [
+                    36.012683,
+                    129.3223
+                ],
+                [
+                    36.012689,
+                    129.322302
+                ],
+                [
+                    36.012691,
+                    129.322314
+                ],
+                [
+                    36.012687,
+                    129.322316
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.012663,
+                    129.322247
+                ],
+                [
+                    36.012695,
+                    129.322289
+                ],
+                [
+                    36.012685,
+                    129.322293
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.0126,
+                    129.323379
+                ],
+                [
+                    36.012419,
+                    129.323192
+                ],
+                [
+                    36.012445,
+                    129.323202
+                ],
+                [
+                    36.012466,
+                    129.323214
+                ],
+                [
+                    36.012486,
+                    129.323227
+                ],
+                [
+                    36.012503,
+                    129.323244
+                ],
+                [
+                    36.012519,
+                    129.323261
+                ],
+                [
+                    36.012546,
+                    129.323296
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 12
+        },
+        {
+            "hull": [
+                [
+                    36.012195,
+                    129.322952
+                ],
+                [
+                    36.012335,
+                    129.323178
+                ],
+                [
+                    36.012284,
+                    129.323162
+                ],
+                [
+                    36.012267,
+                    129.323154
+                ],
+                [
+                    36.012247,
+                    129.323143
+                ],
+                [
+                    36.012233,
+                    129.323124
+                ],
+                [
+                    36.012225,
+                    129.323094
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 12
+        },
+        {
+            "hull": [
+                [
+                    36.012309,
+                    129.3227
+                ],
+                [
+                    36.012185,
+                    129.322927
+                ],
+                [
+                    36.012181,
+                    129.322907
+                ],
+                [
+                    36.012178,
+                    129.322884
+                ],
+                [
+                    36.012396,
+                    129.322484
+                ],
+                [
+                    36.01241,
+                    129.322462
+                ],
+                [
+                    36.012427,
+                    129.32244
+                ],
+                [
+                    36.012329,
+                    129.322659
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 16
+        },
+        {
+            "hull": [
+                [
+                    36.0127,
+                    129.322304
+                ],
+                [
+                    36.012697,
+                    129.322315
+                ],
+                [
+                    36.012687,
+                    129.322316
+                ],
+                [
+                    36.012663,
+                    129.322247
+                ],
+                [
+                    36.012653,
+                    129.322213
+                ],
+                [
+                    36.01264,
+                    129.322162
+                ],
+                [
+                    36.012695,
+                    129.322289
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 12
+        },
+        {
+            "hull": [
+                [
+                    36.012508,
+                    129.321399
+                ],
+                [
+                    36.012573,
+                    129.321505
+                ],
+                [
+                    36.012645,
+                    129.321644
+                ],
+                [
+                    36.012509,
+                    129.321402
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.012334,
+                    129.321307
+                ],
+                [
+                    36.012434,
+                    129.32145
+                ],
+                [
+                    36.012405,
+                    129.321416
+                ],
+                [
+                    36.01237,
+                    129.321372
+                ],
+                [
+                    36.012351,
+                    129.321338
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": true,
+            "silentMode": true,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.01547,
+                    129.322023
+                ],
+                [
+                    36.015658,
+                    129.322174
+                ],
+                [
+                    36.015536,
+                    129.322321
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 12
+        },
+        {
+            "hull": [
+                [
+                    36.015552,
+                    129.322336
+                ],
+                [
+                    36.015547,
+                    129.322322
+                ],
+                [
+                    36.015596,
+                    129.322222
+                ],
+                [
+                    36.015603,
+                    129.322216
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 7
+        },
+        {
+            "hull": [
+                [
+                    36.01547,
+                    129.322023
+                ],
+                [
+                    36.015478,
+                    129.322042
+                ],
+                [
+                    36.015545,
+                    129.322317
+                ],
+                [
+                    36.015546,
+                    129.322337
+                ],
+                [
+                    36.01551,
+                    129.322192
+                ],
+                [
+                    36.015479,
+                    129.322064
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 11
+        },
+        {
+            "hull": [
+                [
+                    36.015479,
+                    129.322063
+                ],
+                [
+                    36.015529,
+                    129.322177
+                ],
+                [
+                    36.01555,
+                    129.322348
+                ],
+                [
+                    36.015535,
+                    129.322291
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 8
+        },
+        {
+            "hull": [
+                [
+                    36.015472,
+                    129.322023
+                ],
+                [
+                    36.01547,
+                    129.321991
+                ],
+                [
+                    36.015523,
+                    129.322166
+                ],
+                [
+                    36.015542,
+                    129.322265
+                ],
+                [
+                    36.015545,
+                    129.3223
+                ],
+                [
+                    36.015548,
+                    129.322352
+                ],
+                [
+                    36.015544,
+                    129.322338
+                ],
+                [
+                    36.015506,
+                    129.322193
+                ],
+                [
+                    36.015479,
+                    129.322078
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 31
+        },
+        {
+            "hull": [
+                [
+                    36.015478,
+                    129.322055
+                ],
+                [
+                    36.015549,
+                    129.322333
+                ],
+                [
+                    36.015509,
+                    129.322192
+                ],
+                [
+                    36.015478,
+                    129.322069
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.015466,
+                    129.32198
+                ],
+                [
+                    36.015479,
+                    129.322031
+                ],
+                [
+                    36.015479,
+                    129.322078
+                ],
+                [
+                    36.01547,
+                    129.322023
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 7
+        },
+        {
+            "hull": [
+                [
+                    36.015525,
+                    129.322205
+                ],
+                [
+                    36.015578,
+                    129.322234
+                ],
+                [
+                    36.015538,
+                    129.322265
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.015478,
+                    129.322038
+                ],
+                [
+                    36.015528,
+                    129.322215
+                ],
+                [
+                    36.015478,
+                    129.322051
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.015472,
+                    129.322023
+                ],
+                [
+                    36.015479,
+                    129.322032
+                ],
+                [
+                    36.015514,
+                    129.322195
+                ],
+                [
+                    36.015478,
+                    129.322049
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.015479,
+                    129.322058
+                ],
+                [
+                    36.01547,
+                    129.322024
+                ],
+                [
+                    36.015475,
+                    129.322024
+                ],
+                [
+                    36.015478,
+                    129.322049
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.015478,
+                    129.322049
+                ],
+                [
+                    36.01547,
+                    129.322024
+                ],
+                [
+                    36.015472,
+                    129.322023
+                ],
+                [
+                    36.015475,
+                    129.322024
+                ],
+                [
+                    36.015477,
+                    129.322034
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.015363,
+                    129.32125
+                ],
+                [
+                    36.015328,
+                    129.321267
+                ],
+                [
+                    36.01535,
+                    129.321212
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.015363,
+                    129.321194
+                ],
+                [
+                    36.015427,
+                    129.321259
+                ],
+                [
+                    36.015409,
+                    129.321263
+                ],
+                [
+                    36.015386,
+                    129.321251
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 7
+        },
+        {
+            "hull": [
+                [
+                    36.015376,
+                    129.321234
+                ],
+                [
+                    36.015435,
+                    129.321257
+                ],
+                [
+                    36.015423,
+                    129.321262
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.015685,
+                    129.320743
+                ],
+                [
+                    36.015823,
+                    129.320682
+                ],
+                [
+                    36.01583,
+                    129.320681
+                ],
+                [
+                    36.015831,
+                    129.320682
+                ],
+                [
+                    36.015864,
+                    129.320934
+                ],
+                [
+                    36.01579,
+                    129.320955
+                ],
+                [
+                    36.015773,
+                    129.320956
+                ],
+                [
+                    36.015696,
+                    129.320847
+                ],
+                [
+                    36.015687,
+                    129.320822
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 538
+        },
+        {
+            "hull": [
+                [
+                    36.015683,
+                    129.320826
+                ],
+                [
+                    36.015671,
+                    129.320715
+                ],
+                [
+                    36.015746,
+                    129.320697
+                ],
+                [
+                    36.015822,
+                    129.320686
+                ],
+                [
+                    36.015805,
+                    129.320747
+                ],
+                [
+                    36.01577,
+                    129.320817
+                ],
+                [
+                    36.015748,
+                    129.320856
+                ],
+                [
+                    36.01573,
+                    129.320873
+                ],
+                [
+                    36.015721,
+                    129.320867
+                ],
+                [
+                    36.015696,
+                    129.320846
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 160
+        },
+        {
+            "hull": [
+                [
+                    36.015708,
+                    129.320777
+                ],
+                [
+                    36.015781,
+                    129.320644
+                ],
+                [
+                    36.015771,
+                    129.320739
+                ],
+                [
+                    36.015719,
+                    129.320878
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.015753,
+                    129.320933
+                ],
+                [
+                    36.015711,
+                    129.320836
+                ],
+                [
+                    36.015715,
+                    129.320833
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.015727,
+                    129.320974
+                ],
+                [
+                    36.015711,
+                    129.320826
+                ],
+                [
+                    36.015791,
+                    129.320929
+                ],
+                [
+                    36.015793,
+                    129.320957
+                ],
+                [
+                    36.015788,
+                    129.32096
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 8
+        },
+        {
+            "hull": [
+                [
+                    36.015711,
+                    129.320845
+                ],
+                [
+                    36.015714,
+                    129.320831
+                ],
+                [
+                    36.015728,
+                    129.320834
+                ],
+                [
+                    36.01573,
+                    129.320873
+                ],
+                [
+                    36.015714,
+                    129.320853
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.015714,
+                    129.320831
+                ],
+                [
+                    36.015719,
+                    129.320827
+                ],
+                [
+                    36.015719,
+                    129.320828
+                ],
+                [
+                    36.015714,
+                    129.320853
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.01572,
+                    129.320879
+                ],
+                [
+                    36.015719,
+                    129.320859
+                ],
+                [
+                    36.01572,
+                    129.320843
+                ],
+                [
+                    36.015721,
+                    129.320843
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.015715,
+                    129.320831
+                ],
+                [
+                    36.01572,
+                    129.320848
+                ],
+                [
+                    36.01572,
+                    129.320879
+                ],
+                [
+                    36.015719,
+                    129.320874
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.015709,
+                    129.320788
+                ],
+                [
+                    36.015708,
+                    129.320777
+                ],
+                [
+                    36.015717,
+                    129.320829
+                ],
+                [
+                    36.01572,
+                    129.320879
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.015715,
+                    129.320827
+                ],
+                [
+                    36.01569,
+                    129.320795
+                ],
+                [
+                    36.01571,
+                    129.320772
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 8
+        },
+        {
+            "hull": [
+                [
+                    36.015699,
+                    129.320851
+                ],
+                [
+                    36.015704,
+                    129.320798
+                ],
+                [
+                    36.015721,
+                    129.320707
+                ],
+                [
+                    36.015749,
+                    129.3207
+                ],
+                [
+                    36.015714,
+                    129.320825
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 12
+        },
+        {
+            "hull": [
+                [
+                    36.015709,
+                    129.320825
+                ],
+                [
+                    36.015684,
+                    129.320765
+                ],
+                [
+                    36.015687,
+                    129.320737
+                ],
+                [
+                    36.015709,
+                    129.320711
+                ],
+                [
+                    36.015746,
+                    129.320715
+                ],
+                [
+                    36.015733,
+                    129.320825
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 16
+        },
+        {
+            "hull": [
+                [
+                    36.015741,
+                    129.320701
+                ],
+                [
+                    36.015749,
+                    129.320832
+                ],
+                [
+                    36.015733,
+                    129.320878
+                ],
+                [
+                    36.015699,
+                    129.320851
+                ],
+                [
+                    36.015684,
+                    129.320827
+                ],
+                [
+                    36.015678,
+                    129.320727
+                ],
+                [
+                    36.015713,
+                    129.32071
+                ],
+                [
+                    36.015727,
+                    129.320704
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 78
+        },
+        {
+            "hull": [
+                [
+                    36.015736,
+                    129.320828
+                ],
+                [
+                    36.01569,
+                    129.32075
+                ],
+                [
+                    36.015709,
+                    129.320709
+                ],
+                [
+                    36.01571,
+                    129.320708
+                ],
+                [
+                    36.015722,
+                    129.320706
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 8
+        },
+        {
+            "hull": [
+                [
+                    36.01569,
+                    129.320833
+                ],
+                [
+                    36.015719,
+                    129.320731
+                ],
+                [
+                    36.015733,
+                    129.320824
+                ],
+                [
+                    36.015703,
+                    129.32084
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.015684,
+                    129.32083
+                ],
+                [
+                    36.015704,
+                    129.320732
+                ],
+                [
+                    36.015732,
+                    129.320701
+                ],
+                [
+                    36.015712,
+                    129.320767
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 12
+        },
+        {
+            "hull": [
+                [
+                    36.015689,
+                    129.320778
+                ],
+                [
+                    36.015746,
+                    129.320714
+                ],
+                [
+                    36.015713,
+                    129.320757
+                ],
+                [
+                    36.01569,
+                    129.32078
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.015737,
+                    129.32083
+                ],
+                [
+                    36.015684,
+                    129.32076
+                ],
+                [
+                    36.015746,
+                    129.320697
+                ],
+                [
+                    36.015748,
+                    129.3207
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.01569,
+                    129.320751
+                ],
+                [
+                    36.015707,
+                    129.32072
+                ],
+                [
+                    36.015717,
+                    129.320711
+                ],
+                [
+                    36.015703,
+                    129.320811
+                ],
+                [
+                    36.015696,
+                    129.320839
+                ],
+                [
+                    36.015691,
+                    129.320787
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 10
+        },
+        {
+            "hull": [
+                [
+                    36.015776,
+                    129.320917
+                ],
+                [
+                    36.015699,
+                    129.320854
+                ],
+                [
+                    36.015691,
+                    129.320832
+                ],
+                [
+                    36.015686,
+                    129.320746
+                ],
+                [
+                    36.015687,
+                    129.320723
+                ],
+                [
+                    36.015796,
+                    129.320748
+                ],
+                [
+                    36.015787,
+                    129.320851
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 104
+        },
+        {
+            "hull": [
+                [
+                    36.015672,
+                    129.320716
+                ],
+                [
+                    36.01582,
+                    129.320714
+                ],
+                [
+                    36.015787,
+                    129.320851
+                ],
+                [
+                    36.01573,
+                    129.320879
+                ],
+                [
+                    36.015727,
+                    129.320876
+                ],
+                [
+                    36.015716,
+                    129.320862
+                ],
+                [
+                    36.015714,
+                    129.320859
+                ],
+                [
+                    36.0157,
+                    129.32083
+                ],
+                [
+                    36.015693,
+                    129.320813
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 52
+        },
+        {
+            "hull": [
+                [
+                    36.015773,
+                    129.32081
+                ],
+                [
+                    36.015758,
+                    129.320856
+                ],
+                [
+                    36.015737,
+                    129.320864
+                ],
+                [
+                    36.01572,
+                    129.320865
+                ],
+                [
+                    36.015717,
+                    129.320859
+                ],
+                [
+                    36.015671,
+                    129.320715
+                ],
+                [
+                    36.015687,
+                    129.320725
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 24
+        },
+        {
+            "hull": [
+                [
+                    36.015773,
+                    129.320956
+                ],
+                [
+                    36.015689,
+                    129.320821
+                ],
+                [
+                    36.015707,
+                    129.320783
+                ],
+                [
+                    36.015793,
+                    129.320801
+                ],
+                [
+                    36.01584,
+                    129.320874
+                ],
+                [
+                    36.01586,
+                    129.320932
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 47
+        },
+        {
+            "hull": [
+                [
+                    36.015832,
+                    129.320869
+                ],
+                [
+                    36.015859,
+                    129.32092
+                ],
+                [
+                    36.015815,
+                    129.320906
+                ],
+                [
+                    36.015694,
+                    129.32083
+                ],
+                [
+                    36.015697,
+                    129.320803
+                ],
+                [
+                    36.015706,
+                    129.320793
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 21
+        },
+        {
+            "hull": [
+                [
+                    36.015818,
+                    129.32091
+                ],
+                [
+                    36.015773,
+                    129.320954
+                ],
+                [
+                    36.015697,
+                    129.320839
+                ],
+                [
+                    36.015692,
+                    129.320808
+                ],
+                [
+                    36.015706,
+                    129.320795
+                ],
+                [
+                    36.015758,
+                    129.320822
+                ],
+                [
+                    36.015816,
+                    129.320903
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 29
+        },
+        {
+            "hull": [
+                [
+                    36.015693,
+                    129.320834
+                ],
+                [
+                    36.015704,
+                    129.320797
+                ],
+                [
+                    36.01584,
+                    129.320874
+                ],
+                [
+                    36.015837,
+                    129.320914
+                ],
+                [
+                    36.01579,
+                    129.320944
+                ],
+                [
+                    36.015783,
+                    129.320942
+                ],
+                [
+                    36.015693,
+                    129.320835
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 26
+        },
+        {
+            "hull": [
+                [
+                    36.015861,
+                    129.320936
+                ],
+                [
+                    36.015789,
+                    129.320957
+                ],
+                [
+                    36.015774,
+                    129.320953
+                ],
+                [
+                    36.015693,
+                    129.320834
+                ],
+                [
+                    36.01569,
+                    129.320818
+                ],
+                [
+                    36.015693,
+                    129.320806
+                ],
+                [
+                    36.015694,
+                    129.320803
+                ],
+                [
+                    36.015704,
+                    129.320797
+                ],
+                [
+                    36.015789,
+                    129.320808
+                ],
+                [
+                    36.015859,
+                    129.32093
+                ],
+                [
+                    36.01586,
+                    129.320932
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 29
+        },
+        {
+            "hull": [
+                [
+                    36.015837,
+                    129.320915
+                ],
+                [
+                    36.01578,
+                    129.320944
+                ],
+                [
+                    36.01569,
+                    129.320829
+                ],
+                [
+                    36.015688,
+                    129.32082
+                ],
+                [
+                    36.015699,
+                    129.320803
+                ],
+                [
+                    36.015701,
+                    129.320801
+                ],
+                [
+                    36.015789,
+                    129.320789
+                ],
+                [
+                    36.015836,
+                    129.320861
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 38
+        },
+        {
+            "hull": [
+                [
+                    36.015697,
+                    129.320803
+                ],
+                [
+                    36.015715,
+                    129.320784
+                ],
+                [
+                    36.015761,
+                    129.320809
+                ],
+                [
+                    36.015825,
+                    129.320865
+                ],
+                [
+                    36.015843,
+                    129.320906
+                ],
+                [
+                    36.015818,
+                    129.320908
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 25
+        },
+        {
+            "hull": [
+                [
+                    36.01584,
+                    129.32088
+                ],
+                [
+                    36.015784,
+                    129.320939
+                ],
+                [
+                    36.015698,
+                    129.320837
+                ],
+                [
+                    36.015695,
+                    129.320802
+                ],
+                [
+                    36.015789,
+                    129.320789
+                ],
+                [
+                    36.015833,
+                    129.320859
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 18
+        },
+        {
+            "hull": [
+                [
+                    36.015693,
+                    129.320805
+                ],
+                [
+                    36.015763,
+                    129.320769
+                ],
+                [
+                    36.015833,
+                    129.320868
+                ],
+                [
+                    36.01586,
+                    129.320935
+                ],
+                [
+                    36.015784,
+                    129.320937
+                ],
+                [
+                    36.015713,
+                    129.320856
+                ],
+                [
+                    36.015698,
+                    129.320837
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 31
+        },
+        {
+            "hull": [
+                [
+                    36.015692,
+                    129.320808
+                ],
+                [
+                    36.015788,
+                    129.320794
+                ],
+                [
+                    36.015812,
+                    129.320906
+                ],
+                [
+                    36.015784,
+                    129.32094
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 7
+        },
+        {
+            "hull": [
+                [
+                    36.015781,
+                    129.320943
+                ],
+                [
+                    36.015697,
+                    129.320825
+                ],
+                [
+                    36.015752,
+                    129.320807
+                ],
+                [
+                    36.015843,
+                    129.320885
+                ],
+                [
+                    36.015821,
+                    129.320906
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 18
+        },
+        {
+            "hull": [
+                [
+                    36.015833,
+                    129.32086
+                ],
+                [
+                    36.015713,
+                    129.320846
+                ],
+                [
+                    36.015766,
+                    129.320847
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.015739,
+                    129.320841
+                ],
+                [
+                    36.015717,
+                    129.320788
+                ],
+                [
+                    36.015753,
+                    129.320807
+                ],
+                [
+                    36.015833,
+                    129.320858
+                ],
+                [
+                    36.01587,
+                    129.320891
+                ],
+                [
+                    36.015863,
+                    129.320897
+                ],
+                [
+                    36.015851,
+                    129.320903
+                ],
+                [
+                    36.015818,
+                    129.320909
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 57
+        },
+        {
+            "hull": [
+                [
+                    36.015764,
+                    129.320847
+                ],
+                [
+                    36.015866,
+                    129.320895
+                ],
+                [
+                    36.015864,
+                    129.320896
+                ],
+                [
+                    36.015839,
+                    129.320907
+                ],
+                [
+                    36.015821,
+                    129.320907
+                ],
+                [
+                    36.015814,
+                    129.320905
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 16
+        },
+        {
+            "hull": [
+                [
+                    36.015738,
+                    129.320881
+                ],
+                [
+                    36.015769,
+                    129.320826
+                ],
+                [
+                    36.015765,
+                    129.32084
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.015834,
+                    129.320867
+                ],
+                [
+                    36.015726,
+                    129.320846
+                ],
+                [
+                    36.015775,
+                    129.320807
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.015776,
+                    129.320899
+                ],
+                [
+                    36.015784,
+                    129.320873
+                ],
+                [
+                    36.015816,
+                    129.320902
+                ],
+                [
+                    36.015776,
+                    129.320914
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.015808,
+                    129.320872
+                ],
+                [
+                    36.015836,
+                    129.32086
+                ],
+                [
+                    36.015818,
+                    129.320903
+                ],
+                [
+                    36.015816,
+                    129.320904
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.015858,
+                    129.320929
+                ],
+                [
+                    36.015727,
+                    129.320845
+                ],
+                [
+                    36.015733,
+                    129.320828
+                ],
+                [
+                    36.015786,
+                    129.320844
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.015784,
+                    129.320937
+                ],
+                [
+                    36.015714,
+                    129.320859
+                ],
+                [
+                    36.015787,
+                    129.320857
+                ],
+                [
+                    36.015819,
+                    129.320905
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.015734,
+                    129.320852
+                ],
+                [
+                    36.015764,
+                    129.320829
+                ],
+                [
+                    36.015856,
+                    129.320901
+                ],
+                [
+                    36.015809,
+                    129.320911
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.015846,
+                    129.320885
+                ],
+                [
+                    36.015818,
+                    129.320908
+                ],
+                [
+                    36.015836,
+                    129.320872
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 7
+        },
+        {
+            "hull": [
+                [
+                    36.015869,
+                    129.320891
+                ],
+                [
+                    36.015812,
+                    129.320906
+                ],
+                [
+                    36.015833,
+                    129.320858
+                ],
+                [
+                    36.015834,
+                    129.320858
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 12
+        },
+        {
+            "hull": [
+                [
+                    36.015736,
+                    129.320916
+                ],
+                [
+                    36.015724,
+                    129.320872
+                ],
+                [
+                    36.015729,
+                    129.320868
+                ],
+                [
+                    36.015812,
+                    129.320906
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.015858,
+                    129.320901
+                ],
+                [
+                    36.015839,
+                    129.320908
+                ],
+                [
+                    36.01582,
+                    129.320906
+                ],
+                [
+                    36.015729,
+                    129.3208
+                ],
+                [
+                    36.01576,
+                    129.320813
+                ],
+                [
+                    36.015831,
+                    129.320862
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 27
+        },
+        {
+            "hull": [
+                [
+                    36.015725,
+                    129.320796
+                ],
+                [
+                    36.01587,
+                    129.320892
+                ],
+                [
+                    36.015831,
+                    129.320906
+                ],
+                [
+                    36.015739,
+                    129.320837
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 16
+        },
+        {
+            "hull": [
+                [
+                    36.01576,
+                    129.320824
+                ],
+                [
+                    36.015758,
+                    129.32082
+                ],
+                [
+                    36.015835,
+                    129.320859
+                ],
+                [
+                    36.015838,
+                    129.320885
+                ],
+                [
+                    36.015839,
+                    129.320907
+                ],
+                [
+                    36.015784,
+                    129.320869
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 18
+        },
+        {
+            "hull": [
+                [
+                    36.015824,
+                    129.32089
+                ],
+                [
+                    36.015688,
+                    129.320867
+                ],
+                [
+                    36.015703,
+                    129.320806
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 13
+        },
+        {
+            "hull": [
+                [
+                    36.01572,
+                    129.320794
+                ],
+                [
+                    36.015869,
+                    129.320892
+                ],
+                [
+                    36.015807,
+                    129.320879
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.015788,
+                    129.320876
+                ],
+                [
+                    36.015739,
+                    129.320838
+                ],
+                [
+                    36.015756,
+                    129.320817
+                ],
+                [
+                    36.015761,
+                    129.320825
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    36.015743,
+                    129.320833
+                ],
+                [
+                    36.015689,
+                    129.320866
+                ],
+                [
+                    36.015702,
+                    129.320817
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.015729,
+                    129.320871
+                ],
+                [
+                    36.015759,
+                    129.320899
+                ],
+                [
+                    36.015751,
+                    129.320899
+                ],
+                [
+                    36.015742,
+                    129.320894
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 7
+        },
+        {
+            "hull": [
+                [
+                    36.01576,
+                    129.320868
+                ],
+                [
+                    36.015762,
+                    129.320833
+                ],
+                [
+                    36.015762,
+                    129.320838
+                ],
+                [
+                    36.01576,
+                    129.320869
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.015757,
+                    129.320879
+                ],
+                [
+                    36.015752,
+                    129.320858
+                ],
+                [
+                    36.015761,
+                    129.320846
+                ],
+                [
+                    36.015762,
+                    129.320861
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.015749,
+                    129.32085
+                ],
+                [
+                    36.015739,
+                    129.320856
+                ],
+                [
+                    36.015748,
+                    129.320849
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.015724,
+                    129.320878
+                ],
+                [
+                    36.015732,
+                    129.320855
+                ],
+                [
+                    36.01574,
+                    129.320853
+                ],
+                [
+                    36.015739,
+                    129.320867
+                ],
+                [
+                    36.015731,
+                    129.320882
+                ],
+                [
+                    36.015727,
+                    129.320881
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 14
+        },
+        {
+            "hull": [
+                [
+                    36.01574,
+                    129.32091
+                ],
+                [
+                    36.015725,
+                    129.32088
+                ],
+                [
+                    36.015738,
+                    129.320857
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 12
+        },
+        {
+            "hull": [
+                [
+                    36.015726,
+                    129.320868
+                ],
+                [
+                    36.015738,
+                    129.320859
+                ],
+                [
+                    36.015728,
+                    129.320868
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    36.015737,
+                    129.320901
+                ],
+                [
+                    36.015728,
+                    129.320882
+                ],
+                [
+                    36.015731,
+                    129.320856
+                ],
+                [
+                    36.015733,
+                    129.320857
+                ],
+                [
+                    36.015737,
+                    129.320861
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 13
+        },
+        {
+            "hull": [
+                [
+                    36.01573,
+                    129.320868
+                ],
+                [
+                    36.015733,
+                    129.32086
+                ],
+                [
+                    36.015733,
+                    129.320887
+                ],
+                [
+                    36.015731,
+                    129.320883
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 7
+        },
+        {
+            "hull": [
+                [
+                    36.015733,
+                    129.32085
+                ],
+                [
+                    36.015735,
+                    129.320847
+                ],
+                [
+                    36.015737,
+                    129.32092
+                ],
+                [
+                    36.015733,
+                    129.320887
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    36.015727,
+                    129.320898
+                ],
+                [
+                    36.015733,
+                    129.320857
+                ],
+                [
+                    36.01574,
+                    129.320907
+                ],
+                [
+                    36.015737,
+                    129.320921
+                ]
+            ],
+            "wifiEnabled": true,
+            "bluetoothEnabled": false,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 5
+        },
+        {
+            "hull": [
+                [
+                    37.482589,
+                    126.941282
+                ],
+                [
+                    37.482594,
+                    126.941288
+                ],
+                [
+                    37.482567,
+                    126.941468
+                ],
+                [
+                    37.482552,
+                    126.941517
+                ],
+                [
+                    37.482528,
+                    126.941567
+                ],
+                [
+                    37.482376,
+                    126.941878
+                ],
+                [
+                    37.48246,
+                    126.941523
+                ],
+                [
+                    37.482471,
+                    126.941493
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 85
+        },
+        {
+            "hull": [
+                [
+                    37.482515,
+                    126.941568
+                ],
+                [
+                    37.482487,
+                    126.941679
+                ],
+                [
+                    37.482497,
+                    126.941567
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 11
+        },
+        {
+            "hull": [
+                [
+                    37.482471,
+                    126.941716
+                ],
+                [
+                    37.482463,
+                    126.941646
+                ],
+                [
+                    37.482472,
+                    126.941591
+                ],
+                [
+                    37.482514,
+                    126.941554
+                ],
+                [
+                    37.482523,
+                    126.941549
+                ],
+                [
+                    37.482519,
+                    126.941635
+                ],
+                [
+                    37.482509,
+                    126.941689
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 30
+        },
+        {
+            "hull": [
+                [
+                    37.482509,
+                    126.941567
+                ],
+                [
+                    37.482474,
+                    126.941486
+                ],
+                [
+                    37.482584,
+                    126.941255
+                ],
+                [
+                    37.482593,
+                    126.941324
+                ],
+                [
+                    37.482574,
+                    126.941444
+                ],
+                [
+                    37.482567,
+                    126.941465
+                ],
+                [
+                    37.482553,
+                    126.941492
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 77
+        },
+        {
+            "hull": [
+                [
+                    37.482309,
+                    126.94236
+                ],
+                [
+                    37.48232,
+                    126.942144
+                ],
+                [
+                    37.482365,
+                    126.942078
+                ],
+                [
+                    37.482365,
+                    126.942079
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 7
+        },
+        {
+            "hull": [
+                [
+                    37.48235,
+                    126.942135
+                ],
+                [
+                    37.482364,
+                    126.942031
+                ],
+                [
+                    37.482381,
+                    126.942094
+                ],
+                [
+                    37.48235,
+                    126.942139
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 17
+        },
+        {
+            "hull": [
+                [
+                    37.482343,
+                    126.942241
+                ],
+                [
+                    37.482343,
+                    126.942225
+                ],
+                [
+                    37.482346,
+                    126.942202
+                ],
+                [
+                    37.482369,
+                    126.942077
+                ],
+                [
+                    37.482371,
+                    126.942079
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 13
+        },
+        {
+            "hull": [
+                [
+                    37.482145,
+                    126.942646
+                ],
+                [
+                    37.482123,
+                    126.942539
+                ],
+                [
+                    37.482234,
+                    126.942322
+                ],
+                [
+                    37.482241,
+                    126.942311
+                ],
+                [
+                    37.482262,
+                    126.942279
+                ],
+                [
+                    37.482318,
+                    126.94224
+                ],
+                [
+                    37.482336,
+                    126.942253
+                ],
+                [
+                    37.482234,
+                    126.94256
+                ],
+                [
+                    37.482168,
+                    126.942697
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 161
+        },
+        {
+            "hull": [
+                [
+                    37.482548,
+                    126.942672
+                ],
+                [
+                    37.482557,
+                    126.942658
+                ],
+                [
+                    37.482553,
+                    126.942666
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    37.482568,
+                    126.942655
+                ],
+                [
+                    37.48256,
+                    126.942651
+                ],
+                [
+                    37.482562,
+                    126.942643
+                ],
+                [
+                    37.482565,
+                    126.942648
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 21
+        },
+        {
+            "hull": [
+                [
+                    37.48257,
+                    126.942662
+                ],
+                [
+                    37.482574,
+                    126.942664
+                ],
+                [
+                    37.482582,
+                    126.942669
+                ],
+                [
+                    37.482593,
+                    126.942686
+                ],
+                [
+                    37.482602,
+                    126.942702
+                ],
+                [
+                    37.482608,
+                    126.942731
+                ],
+                [
+                    37.482604,
+                    126.942724
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 21
+        },
+        {
+            "hull": [
+                [
+                    37.482612,
+                    126.942755
+                ],
+                [
+                    37.482625,
+                    126.9428
+                ],
+                [
+                    37.482621,
+                    126.942811
+                ],
+                [
+                    37.482614,
+                    126.942774
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 18
+        },
+        {
+            "hull": [
+                [
+                    37.482453,
+                    126.94295
+                ],
+                [
+                    37.482452,
+                    126.94292
+                ],
+                [
+                    37.482454,
+                    126.942907
+                ],
+                [
+                    37.482457,
+                    126.942896
+                ],
+                [
+                    37.48247,
+                    126.942881
+                ],
+                [
+                    37.482484,
+                    126.942872
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 24
+        },
+        {
+            "hull": [
+                [
+                    37.482357,
+                    126.943207
+                ],
+                [
+                    37.482346,
+                    126.94323
+                ],
+                [
+                    37.482385,
+                    126.94307
+                ],
+                [
+                    37.48239,
+                    126.943055
+                ],
+                [
+                    37.482448,
+                    126.942968
+                ],
+                [
+                    37.482441,
+                    126.943
+                ],
+                [
+                    37.482438,
+                    126.943009
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 81
+        },
+        {
+            "hull": [
+                [
+                    37.482155,
+                    126.943459
+                ],
+                [
+                    37.482094,
+                    126.943442
+                ],
+                [
+                    37.48221,
+                    126.94333
+                ],
+                [
+                    37.482304,
+                    126.943247
+                ],
+                [
+                    37.482309,
+                    126.943243
+                ],
+                [
+                    37.482326,
+                    126.943237
+                ],
+                [
+                    37.48234,
+                    126.943233
+                ],
+                [
+                    37.48218,
+                    126.943437
+                ],
+                [
+                    37.482162,
+                    126.943459
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 120
+        },
+        {
+            "hull": [
+                [
+                    37.482086,
+                    126.943443
+                ],
+                [
+                    37.481992,
+                    126.943462
+                ],
+                [
+                    37.482006,
+                    126.943454
+                ],
+                [
+                    37.482025,
+                    126.943447
+                ],
+                [
+                    37.482049,
+                    126.943439
+                ],
+                [
+                    37.482065,
+                    126.94344
+                ],
+                [
+                    37.482078,
+                    126.943441
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 21
+        },
+        {
+            "hull": [
+                [
+                    37.481982,
+                    126.943464
+                ],
+                [
+                    37.481636,
+                    126.943702
+                ],
+                [
+                    37.48162,
+                    126.943494
+                ],
+                [
+                    37.48162,
+                    126.943489
+                ],
+                [
+                    37.481622,
+                    126.943477
+                ],
+                [
+                    37.481653,
+                    126.943399
+                ],
+                [
+                    37.48166,
+                    126.943385
+                ],
+                [
+                    37.4818,
+                    126.94329
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 187
+        },
+        {
+            "hull": [
+                [
+                    37.481802,
+                    126.943448
+                ],
+                [
+                    37.481839,
+                    126.943472
+                ],
+                [
+                    37.481817,
+                    126.94346
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 21
+        },
+        {
+            "hull": [
+                [
+                    37.481462,
+                    126.943428
+                ],
+                [
+                    37.481491,
+                    126.943323
+                ],
+                [
+                    37.48151,
+                    126.943282
+                ],
+                [
+                    37.481523,
+                    126.94326
+                ],
+                [
+                    37.481562,
+                    126.943233
+                ],
+                [
+                    37.481556,
+                    126.94325
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 7
+        },
+        {
+            "hull": [
+                [
+                    37.481761,
+                    126.943432
+                ],
+                [
+                    37.481631,
+                    126.943545
+                ],
+                [
+                    37.481629,
+                    126.943539
+                ],
+                [
+                    37.481624,
+                    126.943514
+                ],
+                [
+                    37.481624,
+                    126.943508
+                ],
+                [
+                    37.481638,
+                    126.943405
+                ],
+                [
+                    37.481642,
+                    126.9434
+                ],
+                [
+                    37.481734,
+                    126.943414
+                ],
+                [
+                    37.481741,
+                    126.943417
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 69
+        },
+        {
+            "hull": [
+                [
+                    37.481226,
+                    126.945049
+                ],
+                [
+                    37.481279,
+                    126.944674
+                ],
+                [
+                    37.481579,
+                    126.943799
+                ],
+                [
+                    37.481589,
+                    126.943779
+                ],
+                [
+                    37.481602,
+                    126.943757
+                ],
+                [
+                    37.481616,
+                    126.943734
+                ],
+                [
+                    37.481632,
+                    126.943714
+                ],
+                [
+                    37.481542,
+                    126.944529
+                ],
+                [
+                    37.481539,
+                    126.94454
+                ],
+                [
+                    37.481465,
+                    126.944784
+                ],
+                [
+                    37.481416,
+                    126.944885
+                ],
+                [
+                    37.481406,
+                    126.944905
+                ],
+                [
+                    37.481403,
+                    126.94491
+                ],
+                [
+                    37.481343,
+                    126.945004
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 411
+        },
+        {
+            "hull": [
+                [
+                    37.481402,
+                    126.944863
+                ],
+                [
+                    37.481434,
+                    126.944704
+                ],
+                [
+                    37.481438,
+                    126.944828
+                ],
+                [
+                    37.481432,
+                    126.944851
+                ],
+                [
+                    37.481422,
+                    126.944877
+                ],
+                [
+                    37.481419,
+                    126.944884
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 27
+        },
+        {
+            "hull": [
+                [
+                    37.481517,
+                    126.944333
+                ],
+                [
+                    37.481519,
+                    126.944303
+                ],
+                [
+                    37.48154,
+                    126.944468
+                ],
+                [
+                    37.481541,
+                    126.944478
+                ],
+                [
+                    37.481542,
+                    126.9445
+                ],
+                [
+                    37.481529,
+                    126.944431
+                ],
+                [
+                    37.481517,
+                    126.944345
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 39
+        },
+        {
+            "hull": [
+                [
+                    37.481206,
+                    126.945057
+                ],
+                [
+                    37.481243,
+                    126.944767
+                ],
+                [
+                    37.48125,
+                    126.944768
+                ],
+                [
+                    37.481254,
+                    126.944771
+                ],
+                [
+                    37.481259,
+                    126.944775
+                ],
+                [
+                    37.481301,
+                    126.944809
+                ],
+                [
+                    37.481341,
+                    126.94501
+                ],
+                [
+                    37.481346,
+                    126.945056
+                ],
+                [
+                    37.481333,
+                    126.945063
+                ],
+                [
+                    37.481319,
+                    126.945069
+                ],
+                [
+                    37.481234,
+                    126.945093
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 126
+        },
+        {
+            "hull": [
+                [
+                    37.481211,
+                    126.945043
+                ],
+                [
+                    37.481267,
+                    126.945083
+                ],
+                [
+                    37.48124,
+                    126.945102
+                ],
+                [
+                    37.481175,
+                    126.945098
+                ],
+                [
+                    37.48108,
+                    126.94506
+                ],
+                [
+                    37.481082,
+                    126.945058
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 109
+        },
+        {
+            "hull": [
+                [
+                    37.481167,
+                    126.944953
+                ],
+                [
+                    37.481238,
+                    126.945107
+                ],
+                [
+                    37.481207,
+                    126.945129
+                ],
+                [
+                    37.481174,
+                    126.94511
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 99
+        },
+        {
+            "hull": [
+                [
+                    37.481199,
+                    126.945201
+                ],
+                [
+                    37.48115,
+                    126.945141
+                ],
+                [
+                    37.481163,
+                    126.945088
+                ],
+                [
+                    37.481183,
+                    126.945081
+                ],
+                [
+                    37.481203,
+                    126.945113
+                ],
+                [
+                    37.481211,
+                    126.945157
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 111
+        },
+        {
+            "hull": [
+                [
+                    37.481165,
+                    126.945241
+                ],
+                [
+                    37.481077,
+                    126.945056
+                ],
+                [
+                    37.481079,
+                    126.945056
+                ],
+                [
+                    37.481169,
+                    126.945095
+                ],
+                [
+                    37.4812,
+                    126.945113
+                ],
+                [
+                    37.481187,
+                    126.945214
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 73
+        },
+        {
+            "hull": [
+                [
+                    37.481171,
+                    126.945118
+                ],
+                [
+                    37.481174,
+                    126.94511
+                ],
+                [
+                    37.481173,
+                    126.945115
+                ],
+                [
+                    37.481171,
+                    126.94512
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    37.481152,
+                    126.945084
+                ],
+                [
+                    37.481155,
+                    126.945078
+                ],
+                [
+                    37.481156,
+                    126.945078
+                ],
+                [
+                    37.481153,
+                    126.945083
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    37.481233,
+                    126.944765
+                ],
+                [
+                    37.481135,
+                    126.944781
+                ],
+                [
+                    37.481209,
+                    126.944762
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 19
+        },
+        {
+            "hull": [
+                [
+                    37.481204,
+                    126.944762
+                ],
+                [
+                    37.481099,
+                    126.944778
+                ],
+                [
+                    37.481157,
+                    126.944756
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 28
+        },
+        {
+            "hull": [
+                [
+                    37.480996,
+                    126.945158
+                ],
+                [
+                    37.480953,
+                    126.945137
+                ],
+                [
+                    37.480984,
+                    126.944955
+                ],
+                [
+                    37.481008,
+                    126.94482
+                ],
+                [
+                    37.481118,
+                    126.944745
+                ],
+                [
+                    37.48112,
+                    126.944745
+                ],
+                [
+                    37.48114,
+                    126.94476
+                ],
+                [
+                    37.481096,
+                    126.94513
+                ],
+                [
+                    37.481032,
+                    126.945152
+                ],
+                [
+                    37.481008,
+                    126.945157
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 114
+        },
+        {
+            "hull": [
+                [
+                    37.481108,
+                    126.944748
+                ],
+                [
+                    37.481104,
+                    126.944789
+                ],
+                [
+                    37.4811,
+                    126.944778
+                ],
+                [
+                    37.4811,
+                    126.944763
+                ],
+                [
+                    37.481102,
+                    126.944756
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 21
+        },
+        {
+            "hull": [
+                [
+                    37.48092,
+                    126.945135
+                ],
+                [
+                    37.480885,
+                    126.945108
+                ],
+                [
+                    37.480917,
+                    126.944833
+                ],
+                [
+                    37.481109,
+                    126.944792
+                ],
+                [
+                    37.481108,
+                    126.94483
+                ],
+                [
+                    37.481073,
+                    126.945126
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 224
+        },
+        {
+            "hull": [
+                [
+                    37.480999,
+                    126.944923
+                ],
+                [
+                    37.480998,
+                    126.944918
+                ],
+                [
+                    37.481004,
+                    126.944865
+                ],
+                [
+                    37.481019,
+                    126.944851
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 6
+        },
+        {
+            "hull": [
+                [
+                    37.481,
+                    126.944926
+                ],
+                [
+                    37.480997,
+                    126.944915
+                ],
+                [
+                    37.481004,
+                    126.944866
+                ],
+                [
+                    37.481005,
+                    126.944874
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 8
+        },
+        {
+            "hull": [
+                [
+                    37.481019,
+                    126.94502
+                ],
+                [
+                    37.481125,
+                    126.944922
+                ],
+                [
+                    37.481133,
+                    126.94493
+                ],
+                [
+                    37.481154,
+                    126.944974
+                ],
+                [
+                    37.481157,
+                    126.944985
+                ],
+                [
+                    37.481149,
+                    126.945013
+                ],
+                [
+                    37.481058,
+                    126.945064
+                ],
+                [
+                    37.48103,
+                    126.945045
+                ],
+                [
+                    37.481021,
+                    126.945033
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 114
+        },
+        {
+            "hull": [
+                [
+                    37.481009,
+                    126.945037
+                ],
+                [
+                    37.481135,
+                    126.944932
+                ],
+                [
+                    37.481057,
+                    126.945056
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 96
+        },
+        {
+            "hull": [
+                [
+                    37.481023,
+                    126.945013
+                ],
+                [
+                    37.481139,
+                    126.94494
+                ],
+                [
+                    37.481055,
+                    126.94505
+                ],
+                [
+                    37.481041,
+                    126.945039
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 24
+        },
+        {
+            "hull": [
+                [
+                    37.481151,
+                    126.944958
+                ],
+                [
+                    37.481065,
+                    126.945053
+                ],
+                [
+                    37.48105,
+                    126.945047
+                ],
+                [
+                    37.481038,
+                    126.945039
+                ],
+                [
+                    37.481027,
+                    126.945026
+                ],
+                [
+                    37.481147,
+                    126.944947
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 36
+        },
+        {
+            "hull": [
+                [
+                    37.48102,
+                    126.945032
+                ],
+                [
+                    37.481031,
+                    126.945022
+                ],
+                [
+                    37.481066,
+                    126.945008
+                ],
+                [
+                    37.481068,
+                    126.945008
+                ],
+                [
+                    37.481149,
+                    126.945018
+                ],
+                [
+                    37.481064,
+                    126.945041
+                ],
+                [
+                    37.481048,
+                    126.945044
+                ],
+                [
+                    37.481044,
+                    126.945044
+                ],
+                [
+                    37.481037,
+                    126.945043
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 81
+        },
+        {
+            "hull": [
+                [
+                    37.481031,
+                    126.945035
+                ],
+                [
+                    37.481063,
+                    126.945008
+                ],
+                [
+                    37.481069,
+                    126.945008
+                ],
+                [
+                    37.481124,
+                    126.945018
+                ],
+                [
+                    37.481035,
+                    126.945037
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 33
+        },
+        {
+            "hull": [
+                [
+                    37.481022,
+                    126.945025
+                ],
+                [
+                    37.481072,
+                    126.945014
+                ],
+                [
+                    37.481113,
+                    126.945016
+                ],
+                [
+                    37.481061,
+                    126.945023
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 12
+        },
+        {
+            "hull": [
+                [
+                    37.481112,
+                    126.945012
+                ],
+                [
+                    37.481043,
+                    126.945039
+                ],
+                [
+                    37.481048,
+                    126.945028
+                ],
+                [
+                    37.481065,
+                    126.94501
+                ],
+                [
+                    37.48108,
+                    126.94501
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 24
+        },
+        {
+            "hull": [
+                [
+                    37.481071,
+                    126.945008
+                ],
+                [
+                    37.481099,
+                    126.945011
+                ],
+                [
+                    37.481094,
+                    126.945011
+                ],
+                [
+                    37.481072,
+                    126.945009
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 18
+        },
+        {
+            "hull": [
+                [
+                    37.481058,
+                    126.945064
+                ],
+                [
+                    37.481009,
+                    126.945038
+                ],
+                [
+                    37.481016,
+                    126.945015
+                ],
+                [
+                    37.481018,
+                    126.945014
+                ],
+                [
+                    37.481035,
+                    126.945008
+                ],
+                [
+                    37.481042,
+                    126.94501
+                ],
+                [
+                    37.481068,
+                    126.945025
+                ],
+                [
+                    37.481066,
+                    126.945053
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 1011
+        },
+        {
+            "hull": [
+                [
+                    37.481057,
+                    126.945035
+                ],
+                [
+                    37.481064,
+                    126.945008
+                ],
+                [
+                    37.481064,
+                    126.945009
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 9
+        },
+        {
+            "hull": [
+                [
+                    37.481021,
+                    126.945036
+                ],
+                [
+                    37.481062,
+                    126.945008
+                ],
+                [
+                    37.481041,
+                    126.945041
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 15
+        },
+        {
+            "hull": [
+                [
+                    37.481047,
+                    126.945042
+                ],
+                [
+                    37.481034,
+                    126.945032
+                ],
+                [
+                    37.481053,
+                    126.945035
+                ],
+                [
+                    37.481065,
+                    126.945037
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 12
+        },
+        {
+            "hull": [
+                [
+                    37.481051,
+                    126.945027
+                ],
+                [
+                    37.481048,
+                    126.945053
+                ],
+                [
+                    37.481035,
+                    126.945042
+                ],
+                [
+                    37.48103,
+                    126.945033
+                ],
+                [
+                    37.481031,
+                    126.945026
+                ],
+                [
+                    37.481035,
+                    126.945026
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 21
+        },
+        {
+            "hull": [
+                [
+                    37.481062,
+                    126.945056
+                ],
+                [
+                    37.481027,
+                    126.945034
+                ],
+                [
+                    37.481038,
+                    126.945016
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 21
+        },
+        {
+            "hull": [
+                [
+                    37.481042,
+                    126.945031
+                ],
+                [
+                    37.481058,
+                    126.945032
+                ],
+                [
+                    37.481058,
+                    126.945044
+                ],
+                [
+                    37.481048,
+                    126.945038
+                ],
+                [
+                    37.481044,
+                    126.945034
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 15
+        },
+        {
+            "hull": [
+                [
+                    37.481041,
+                    126.945045
+                ],
+                [
+                    37.481026,
+                    126.945026
+                ],
+                [
+                    37.481031,
+                    126.945026
+                ],
+                [
+                    37.481053,
+                    126.945029
+                ],
+                [
+                    37.481058,
+                    126.945042
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 18
+        },
+        {
+            "hull": [
+                [
+                    37.481022,
+                    126.945032
+                ],
+                [
+                    37.481021,
+                    126.945026
+                ],
+                [
+                    37.481032,
+                    126.945027
+                ],
+                [
+                    37.481038,
+                    126.945029
+                ],
+                [
+                    37.48106,
+                    126.945049
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 21
+        },
+        {
+            "hull": [
+                [
+                    37.481039,
+                    126.945045
+                ],
+                [
+                    37.481026,
+                    126.945026
+                ],
+                [
+                    37.481035,
+                    126.94502
+                ],
+                [
+                    37.481063,
+                    126.945036
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 24
+        },
+        {
+            "hull": [
+                [
+                    37.481046,
+                    126.945041
+                ],
+                [
+                    37.481017,
+                    126.945038
+                ],
+                [
+                    37.481031,
+                    126.945024
+                ],
+                [
+                    37.481037,
+                    126.945022
+                ],
+                [
+                    37.481047,
+                    126.945027
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 30
+        },
+        {
+            "hull": [
+                [
+                    37.481016,
+                    126.945025
+                ],
+                [
+                    37.481035,
+                    126.945014
+                ],
+                [
+                    37.481054,
+                    126.945035
+                ],
+                [
+                    37.481039,
+                    126.945044
+                ],
+                [
+                    37.481029,
+                    126.945037
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 30
+        },
+        {
+            "hull": [
+                [
+                    37.481019,
+                    126.945041
+                ],
+                [
+                    37.481014,
+                    126.945026
+                ],
+                [
+                    37.481029,
+                    126.945016
+                ],
+                [
+                    37.481053,
+                    126.945028
+                ],
+                [
+                    37.481038,
+                    126.945038
+                ]
+            ],
+            "wifiEnabled": false,
+            "bluetoothEnabled": true,
+            "silentMode": false,
+            "mobileDataEnabled": false,
+            "isVehicleZone": false,
+            "pointCount": 39
+        }
+    ],
+    "vehicleZonesCount": 0,
+    "nonVehicleZonesCount": 211
+}
