@@ -92,8 +92,8 @@ def predict_settings():
         if matching_zone:
             return jsonify(matching_zone)
         else:
+            logging.error("No matching zone found")
             return jsonify({"error": "No matching zone found"}), 404
-
     except FileNotFoundError:
         logging.error("result.json file not found")
         return jsonify({"error": "result.json file not found"}), 404
