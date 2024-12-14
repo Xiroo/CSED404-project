@@ -11,6 +11,11 @@ import os
 import logging
 import json
 
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG, format="%(asctime)s - %(levelname)s - %(message)s"
+)
+
 api = Blueprint("api", __name__)
 
 
@@ -68,6 +73,7 @@ def predict_settings():
         latitude = data.get("latitude")
         altitude = data.get("altitude")
         speed = data.get("speed")
+        logging.error("data serialized")
 
         # Define the path to the result.json file
         json_file_path = os.path.join(os.path.dirname(__file__), "result.json")
@@ -75,24 +81,27 @@ def predict_settings():
         # Open and read the JSON file
         with open(json_file_path, "r") as json_file:
             zones_data = json.load(json_file)
-
+        logging.error("result.json done")
         # Check for a matching zone
         matching_zone = None
         for zone in zones_data.get("zones", []):
             if is_matching_zone(zone, longitude, latitude, altitude, speed):
                 matching_zone = zone
                 break
-
+        logging.error("matching zone done")
         if matching_zone:
             return jsonify(matching_zone)
         else:
             return jsonify({"error": "No matching zone found"}), 404
 
     except FileNotFoundError:
+        logging.error("result.json file not found")
         return jsonify({"error": "result.json file not found"}), 404
     except json.JSONDecodeError:
+        logging.error("Error decoding JSON")
         return jsonify({"error": "Error decoding JSON"}), 500
     except Exception as e:
+        logging.exception("An unexpected error occurred")
         return jsonify({"error": str(e)}), 500
 
 
