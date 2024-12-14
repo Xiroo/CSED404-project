@@ -43,6 +43,7 @@ import com.google.android.gms.location.LocationRequest;
 
 import android.bluetooth.BluetoothAdapter;
 import android.media.AudioManager;
+import android.os.HandlerThread;
 
 public class DataCollectionService extends Service {
 
@@ -52,13 +53,10 @@ public class DataCollectionService extends Service {
     private LocationManager locationManager;
     private SensorManager sensorManager;
     private Sensor gravitySensor;
-    private Sensor barometerSensor;
     private Sensor linearAccelerationSensor;
 
     private float[] gravityValues = new float[3];
-    private float currentPressure = Float.NaN;
     private float[] linearAccelerationValues = new float[3];
-    private double currentAltitude = 0.0;
     private double verticalVelocity = 0.0;
     private long lastUpdateTime = -1;
 
@@ -69,14 +67,21 @@ public class DataCollectionService extends Service {
     private LocationCallback locationCallback;
     private LocationRequest locationRequest;
 
+    private HandlerThread handlerThread;
+    private Handler backgroundHandler;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        // Start background thread
+        handlerThread = new HandlerThread("LocationThread");
+        handlerThread.start();
+        backgroundHandler = new Handler(handlerThread.getLooper());
+
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
 
         gravitySensor = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
-        barometerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
         linearAccelerationSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
 
         registerSensors();
@@ -95,10 +100,6 @@ public class DataCollectionService extends Service {
             sensorManager.registerListener(sensorListener, gravitySensor, SensorManager.SENSOR_DELAY_NORMAL);
         }
 
-        if (barometerSensor != null) {
-            sensorManager.registerListener(sensorListener, barometerSensor, SensorManager.SENSOR_DELAY_NORMAL);
-        }
-
         if (linearAccelerationSensor != null) {
             sensorManager.registerListener(sensorListener, linearAccelerationSensor, SensorManager.SENSOR_DELAY_NORMAL);
         }
@@ -107,28 +108,31 @@ public class DataCollectionService extends Service {
     private void startLocationUpdates() {
         if (ActivityCompat.checkSelfPermission(this, 
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            // Use both providers for better accuracy
-            locationManager.requestLocationUpdates(
-                LocationManager.GPS_PROVIDER,
-                1000, // Keep original 1 second interval
-                1,    // Keep original 1 meter minimum distance
-                locationListener
-            );
-            locationManager.requestLocationUpdates(
-                LocationManager.NETWORK_PROVIDER,
-                1000, // Keep original 1 second interval
-                1,    // Keep original 1 meter minimum distance
-                locationListener
-            );
+            backgroundHandler.post(() -> {
+                locationManager.requestLocationUpdates(
+                    LocationManager.GPS_PROVIDER,
+                    500,
+                    0,
+                    locationListener,
+                    handlerThread.getLooper()
+                );
+                locationManager.requestLocationUpdates(
+                    LocationManager.NETWORK_PROVIDER,
+                    500,
+                    0,
+                    locationListener,
+                    handlerThread.getLooper()
+                );
+            });
         }
     }
 
     private LocationListener locationListener = new LocationListener() {
         @Override
         public void onLocationChanged(@NonNull Location location) {
-            if (location.getAccuracy() <= 5) { // Only accept locations with accuracy <= 5 meters
-                saveLocationToFile(location);
-            }
+            // Remove accuracy check to get more frequent updates
+            saveLocationToFile(location);
+            broadcastLocationUpdate(location);
         }
 
         @Override
@@ -154,11 +158,6 @@ public class DataCollectionService extends Service {
                     System.arraycopy(event.values, 0, gravityValues, 0, event.values.length);
                     break;
 
-                case Sensor.TYPE_PRESSURE:
-                    currentPressure = event.values[0];
-                    calculateAltitude();
-                    break;
-
                 case Sensor.TYPE_LINEAR_ACCELERATION:
                     System.arraycopy(event.values, 0, linearAccelerationValues, 0, event.values.length);
                     calculateVerticalVelocity(currentTime);
@@ -170,12 +169,6 @@ public class DataCollectionService extends Service {
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
         }
     };
-
-    private void calculateAltitude() {
-        if (!Float.isNaN(currentPressure)) {
-            currentAltitude = SensorManager.getAltitude(SensorManager.PRESSURE_STANDARD_ATMOSPHERE, currentPressure);
-        }
-    }
 
     private void calculateVerticalVelocity(long currentTime) {
         double gravityMagnitude = Math.sqrt(gravityValues[0] * gravityValues[0] +
@@ -195,7 +188,6 @@ public class DataCollectionService extends Service {
                 double deltaTimeSeconds = deltaTime / 1000.0;
 
                 verticalVelocity += verticalAcceleration * deltaTimeSeconds;
-                currentAltitude += verticalVelocity * deltaTimeSeconds;
             }
         }
 
@@ -229,11 +221,11 @@ public class DataCollectionService extends Service {
 
         try (FileWriter writer = new FileWriter(file, true)) {
             if (isNewFile) {
-                String header = "timestamp(ms),latitude(deg),longitude(deg),speed(m/s),gravity_x(m/s^2),gravity_y(m/s^2),gravity_z(m/s^2),pressure(hPa),linear_accel_x(m/s^2),linear_accel_y(m/s^2),linear_accel_z(m/s^2),altitude(m),wifi_enabled,bluetooth_enabled,silent_mode,mobile_data_enabled\n";
+                String header = "timestamp(ms),latitude(deg),longitude(deg),speed(m/s),gravity_x(m/s^2),gravity_y(m/s^2),gravity_z(m/s^2),linear_accel_x(m/s^2),linear_accel_y(m/s^2),linear_accel_z(m/s^2),altitude(m),wifi_enabled,bluetooth_enabled,silent_mode,mobile_data_enabled\n";
                 writer.append(header);
             }
 
-            String data = String.format(Locale.getDefault(), "%d,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%b,%b,%b,%b\n",
+            String data = String.format(Locale.getDefault(), "%d,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%b,%b,%b,%b\n",
                     System.currentTimeMillis(),
                     location.getLatitude(),
                     location.getLongitude(),
@@ -241,11 +233,10 @@ public class DataCollectionService extends Service {
                     gravityValues[0],
                     gravityValues[1],
                     gravityValues[2],
-                    currentPressure,
                     linearAccelerationValues[0],
                     linearAccelerationValues[1],
                     linearAccelerationValues[2],
-                    currentAltitude,
+                    location.getAltitude(),
                     isWifiEnabled(),
                     isBluetoothEnabled(),
                     isSilentMode(),
@@ -255,6 +246,9 @@ public class DataCollectionService extends Service {
         } catch (IOException e) {
             Log.e("GPSDataCollection", "File write failed", e);
         }
+
+        // Move broadcast to separate method
+        broadcastLocationUpdate(location);
     }
 
     private Notification getNotification() {
@@ -287,25 +281,26 @@ public class DataCollectionService extends Service {
 
     private void createLocationRequest() {
         locationRequest = LocationRequest.create();
-        
-        // 1. HIGH_ACCURACY - Highest accuracy, uses GPS + WiFi + Cell
         locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-
-        locationRequest.setInterval(5000);
-        locationRequest.setFastestInterval(2000);
-        locationRequest.setSmallestDisplacement(1);
+        locationRequest.setInterval(500);  // Update every 0.5 seconds
+        locationRequest.setFastestInterval(500);
+        locationRequest.setSmallestDisplacement(0);  // Update as soon as new location is available
     }
 
     private void startFusedLocationUpdates() {
+        createLocationRequest();
         locationCallback = new LocationCallback() {
             @Override
             public void onLocationResult(LocationResult locationResult) {
                 if (locationResult == null) {
                     return;
                 }
-                for (Location location : locationResult.getLocations()) {
-                    saveLocationToFile(location);
-                }
+                backgroundHandler.post(() -> {
+                    for (Location location : locationResult.getLocations()) {
+                        saveLocationToFile(location);
+                        broadcastLocationUpdate(location);
+                    }
+                });
             }
         };
 
@@ -313,7 +308,7 @@ public class DataCollectionService extends Service {
             fusedLocationClient.requestLocationUpdates(
                 locationRequest,
                 locationCallback,
-                null
+                handlerThread.getLooper()
             );
         }
     }
@@ -333,11 +328,16 @@ public class DataCollectionService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        // Stop data collection
-        handler.removeCallbacks(locationRunnable);
-        locationManager.removeUpdates(locationListener);
-        sensorManager.unregisterListener(sensorListener);
-        fusedLocationClient.removeLocationUpdates(locationCallback);
+        // Clean up background thread
+        handlerThread.quitSafely();
+        try {
+            handlerThread.join();
+            locationManager.removeUpdates(locationListener);
+            sensorManager.unregisterListener(sensorListener);
+            fusedLocationClient.removeLocationUpdates(locationCallback);
+        } catch (InterruptedException e) {
+            Log.e("DataCollectionService", "Error shutting down thread", e);
+        }
     }
 
     private boolean isWifiEnabled() {
@@ -377,5 +377,23 @@ public class DataCollectionService extends Service {
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(2, notification);
+    }
+
+    private void broadcastLocationUpdate(Location location) {
+        Intent updateIntent = new Intent("com.example.auto_set.LOCATION_UPDATE");
+        updateIntent.putExtra("latitude", location.getLatitude());
+        updateIntent.putExtra("longitude", location.getLongitude());
+        updateIntent.putExtra("speed", location.getSpeed());
+        updateIntent.putExtra("altitude", location.getAltitude());
+        
+        Log.d("DataCollectionService", String.format(
+            "Broadcasting - Lat: %.6f, Lon: %.6f, Speed: %.1f, Alt: %.1f",
+            location.getLatitude(),
+            location.getLongitude(),
+            location.getSpeed(),
+            location.getAltitude()
+        ));
+        
+        sendBroadcast(updateIntent);
     }
 }

@@ -8,13 +8,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Locale;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -41,6 +48,12 @@ public class MainActivity extends AppCompatActivity {
     private FusedLocationProviderClient fusedLocationClient;
     private double currentLatitude;
     private double currentLongitude;
+    private TextView latitudeText;
+    private TextView longitudeText;
+    private TextView speedText;
+    private TextView altitudeText;
+    private BroadcastReceiver locationReceiver;
+    private Handler mainHandler = new Handler(Looper.getMainLooper());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,17 +63,148 @@ public class MainActivity extends AppCompatActivity {
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 
+        // Initialize UI elements first
+        initializeUIElements();
+
         // Request location permissions
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_REQUEST_CODE);
         } else {
-            getLastKnownLocation();
+            // Get initial location and update UI
+            updateInitialLocation();
         }
+    }
 
+    private void initializeUIElements() {
         // Initialize buttons
         toggleModeButton = findViewById(R.id.toggleModeButton);
         adjustSettingsButton = findViewById(R.id.adjustSettingsButton);
+        fileListView = findViewById(R.id.file_list_view);
+        clusterView = findViewById(R.id.clusterView);
 
+        // Initialize status panel TextViews
+        latitudeText = findViewById(R.id.latitudeText);
+        longitudeText = findViewById(R.id.longitudeText);
+        speedText = findViewById(R.id.speedText);
+        altitudeText = findViewById(R.id.altitudeText);
+
+        // Set initial values
+        updateStatusPanel(0, 0, 0, 0);
+
+        // Set up button click listeners
+        setupButtonListeners();
+
+        // Set up broadcast receiver for location updates
+        setupLocationReceiver();
+    }
+
+    private void updateInitialLocation() {
+        if (ActivityCompat.checkSelfPermission(this, 
+                Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            fusedLocationClient.getLastLocation()
+                .addOnSuccessListener(this, location -> {
+                    if (location != null) {
+                        currentLatitude = location.getLatitude();
+                        currentLongitude = location.getLongitude();
+                        Log.i("MainActivity", "Initial location retrieved: " + currentLatitude + ", " + currentLongitude);
+                        
+                        // Update UI with initial location
+                        updateStatusPanel(
+                            location.getLatitude(),
+                            location.getLongitude(),
+                            location.getSpeed(),
+                            location.getAltitude()
+                        );
+                    } else {
+                        Log.e("MainActivity", "Initial location is null");
+                        // Set default values if location is null
+                        updateStatusPanel(0, 0, 0, 0);
+                    }
+                })
+                .addOnFailureListener(e -> {
+                    Log.e("MainActivity", "Error getting initial location", e);
+                    // Set default values on failure
+                    updateStatusPanel(0, 0, 0, 0);
+                });
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permission granted, get initial location
+                updateInitialLocation();
+            } else {
+                // Permission denied, update UI with default values
+                updateStatusPanel(0, 0, 0, 0);
+                Log.w("MainActivity", "Location permission denied");
+            }
+        }
+    }
+
+    private void updateStatusPanel(double latitude, double longitude, float speed, double altitude) {
+        // Always update UI on main thread
+        mainHandler.post(() -> {
+            try {
+                if (latitudeText == null || longitudeText == null || 
+                    speedText == null || altitudeText == null) {
+                    Log.e("MainActivity", "One or more TextViews are null");
+                    return;
+                }
+
+                latitudeText.setText(String.format(Locale.getDefault(), "Latitude: %.6f°", latitude));
+                longitudeText.setText(String.format(Locale.getDefault(), "Longitude: %.6f°", longitude));
+                speedText.setText(String.format(Locale.getDefault(), "Speed: %.1f m/s", speed));
+                altitudeText.setText(String.format(Locale.getDefault(), "Altitude: %.1f m", altitude));
+
+                Log.d("MainActivity", "Status panel updated successfully with values: " +
+                    String.format("Lat: %.6f, Lon: %.6f, Speed: %.1f, Alt: %.1f",
+                    latitude, longitude, speed, altitude));
+            } catch (Exception e) {
+                Log.e("MainActivity", "Error updating status panel", e);
+            }
+        });
+    }
+
+    private void setupLocationReceiver() {
+        locationReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if ("com.example.auto_set.LOCATION_UPDATE".equals(intent.getAction())) {
+                    double latitude = intent.getDoubleExtra("latitude", 0);
+                    double longitude = intent.getDoubleExtra("longitude", 0);
+                    float speed = intent.getFloatExtra("speed", 0);
+                    double altitude = intent.getDoubleExtra("altitude", 0);
+
+                    Log.d("MainActivity", String.format(
+                        "Received - Lat: %.6f, Lon: %.6f, Speed: %.1f, Alt: %.1f",
+                        latitude, longitude, speed, altitude
+                    ));
+
+                    updateStatusPanel(latitude, longitude, speed, altitude);
+                }
+            }
+        };
+
+        IntentFilter filter = new IntentFilter("com.example.auto_set.LOCATION_UPDATE");
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(locationReceiver, filter, Context.RECEIVER_NOT_EXPORTED);
+        } else {
+            registerReceiver(locationReceiver, filter);
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (locationReceiver != null) {
+            unregisterReceiver(locationReceiver);
+        }
+    }
+
+    private void setupButtonListeners() {
         toggleModeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,10 +218,6 @@ public class MainActivity extends AppCompatActivity {
                 adjustSettingsBasedOnZones();
             }
         });
-
-        // Set up the ExpandableListView to view collected files
-        fileListView = findViewById(R.id.file_list_view);
-        loadFileData(fileListView);
 
         // Set up Refresh Button
         Button refreshButton = findViewById(R.id.refresh_button);
@@ -101,20 +241,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        clusterView = findViewById(R.id.clusterView);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                // Permission granted, proceed with location updates
-            } else {
-                // Permission denied, handle accordingly
-            }
-        }
     }
 
     private void loadFileData(ExpandableListView fileListView) {
@@ -218,6 +344,23 @@ public class MainActivity extends AppCompatActivity {
         isCollectingData = !isCollectingData;
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Re-register receiver when activity comes to foreground
+        setupLocationReceiver();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Unregister receiver when activity goes to background
+        if (locationReceiver != null) {
+            unregisterReceiver(locationReceiver);
+            locationReceiver = null;
+        }
+    }
+
     private void adjustSettingsBasedOnZones() {
         // Load collected data
         List<Zone> zones = createZonesFromData();
@@ -274,11 +417,15 @@ public class MainActivity extends AppCompatActivity {
                 if (values.length >= 16) {
                     double latitude = Double.parseDouble(values[1]);
                     double longitude = Double.parseDouble(values[2]);
+                    float speed = Float.parseFloat(values[3]);
+                    double altitude = Double.parseDouble(values[10]); // Assuming altitude is in column 11
                     boolean wifiEnabled = Boolean.parseBoolean(values[12]);
                     boolean bluetoothEnabled = Boolean.parseBoolean(values[13]);
                     boolean silentMode = Boolean.parseBoolean(values[14]);
                     boolean mobileDataEnabled = Boolean.parseBoolean(values[15]);
-                    dataPoints.add(new DataPoint(latitude, longitude, wifiEnabled, bluetoothEnabled, silentMode, mobileDataEnabled));
+                    
+                    dataPoints.add(new DataPoint(latitude, longitude, altitude, speed,
+                        wifiEnabled, bluetoothEnabled, silentMode, mobileDataEnabled));
                 }
             }
         } catch (IOException e) {
@@ -288,6 +435,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private List<Zone> clusterDataPoints(List<DataPoint> dataPoints) {
+        // Separate vehicle and non-vehicle points
+        List<DataPoint> vehiclePoints = new ArrayList<>();
+        List<DataPoint> nonVehiclePoints = new ArrayList<>();
+        
+        for (DataPoint point : dataPoints) {
+            if (point.isVehicle) {
+                vehiclePoints.add(point);
+            } else {
+                nonVehiclePoints.add(point);
+            }
+        }
+
+        // Create zones for non-vehicle points
+        List<Zone> zones = clusterNonVehiclePoints(nonVehiclePoints);
+        
+        // Create separate zones for vehicle points
+        zones.addAll(clusterVehiclePoints(vehiclePoints));
+        
+        return zones;
+    }
+
+    private List<Zone> clusterNonVehiclePoints(List<DataPoint> points) {
         double eps = 0.5; // Adjusted epsilon value for combined distance
         int minPts = 5;
 
@@ -295,20 +464,48 @@ public class MainActivity extends AppCompatActivity {
         List<DataPoint> visited = new ArrayList<>();
         List<DataPoint> noise = new ArrayList<>();
 
-        for (DataPoint point : dataPoints) {
+        for (DataPoint point : points) {
             if (visited.contains(point)) continue;
             visited.add(point);
 
-            List<DataPoint> neighbors = getNeighbors(point, dataPoints, eps);
+            List<DataPoint> neighbors = getNeighbors(point, points, eps);
             if (neighbors.size() < minPts) {
                 noise.add(point);
             } else {
-                Zone zone = new Zone(point.latitude, point.longitude, point.wifiEnabled, point.bluetoothEnabled, point.silentMode, point.mobileDataEnabled);
-                expandCluster(point, neighbors, zone, dataPoints, visited, eps, minPts);
+                Zone zone = new Zone(point.latitude, point.longitude, point.wifiEnabled, 
+                    point.bluetoothEnabled, point.silentMode, point.mobileDataEnabled);
+                expandCluster(point, neighbors, zone, points, visited, eps, minPts);
                 zones.add(zone);
             }
         }
         return zones;
+    }
+
+    private List<Zone> clusterVehiclePoints(List<DataPoint> vehiclePoints) {
+        // For vehicle points, we might want different clustering parameters
+        double vehicleEps = 1.0; // Larger epsilon for vehicle points
+        int vehicleMinPts = 3; // Fewer points needed for vehicle clusters
+
+        List<Zone> vehicleZones = new ArrayList<>();
+        List<DataPoint> visited = new ArrayList<>();
+        List<DataPoint> noise = new ArrayList<>();
+
+        for (DataPoint point : vehiclePoints) {
+            if (visited.contains(point)) continue;
+            visited.add(point);
+
+            List<DataPoint> neighbors = getVehicleNeighbors(point, vehiclePoints, vehicleEps);
+            if (neighbors.size() < vehicleMinPts) {
+                noise.add(point);
+            } else {
+                Zone zone = new Zone(point.latitude, point.longitude, point.wifiEnabled, 
+                    point.bluetoothEnabled, point.silentMode, point.mobileDataEnabled);
+                zone.setVehicleZone(true); // Mark as vehicle zone
+                expandCluster(point, neighbors, zone, vehiclePoints, visited, vehicleEps, vehicleMinPts);
+                vehicleZones.add(zone);
+            }
+        }
+        return vehicleZones;
     }
 
     private void expandCluster(DataPoint point, List<DataPoint> neighbors, Zone zone, List<DataPoint> dataPoints, List<DataPoint> visited, double eps, int minPts) {
@@ -339,10 +536,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private double distance(DataPoint p1, DataPoint p2) {
-        // Geographic distance
+        // Geographic distance including altitude
         double latDiff = p1.latitude - p2.latitude;
         double lonDiff = p1.longitude - p2.longitude;
-        double geoDistance = Math.sqrt(latDiff * latDiff + lonDiff * lonDiff);
+        double altDiff = (p1.altitude - p2.altitude) / 1000.0; // Convert to km for consistent scale
+        double geoDistance = Math.sqrt(latDiff * latDiff + lonDiff * lonDiff + altDiff * altDiff);
 
         // Settings distance
         double settingsDistance = 0;
@@ -352,8 +550,8 @@ public class MainActivity extends AppCompatActivity {
         if (p1.mobileDataEnabled != p2.mobileDataEnabled) settingsDistance += 1;
 
         // Combine distances with weights
-        double weightGeo = 0.7; // Weight for geographic distance
-        double weightSettings = 0.3; // Weight for settings distance
+        double weightGeo = 0.7;
+        double weightSettings = 0.3;
 
         return weightGeo * geoDistance + weightSettings * settingsDistance;
     }

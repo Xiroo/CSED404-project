@@ -15,6 +15,7 @@ public class Zone implements Parcelable {
     private boolean silentMode;
     private boolean mobileDataEnabled;
     private List<DataPoint> dataPoints;
+    private boolean isVehicleZone;
 
     public Zone(double latitude, double longitude, boolean wifiEnabled, boolean bluetoothEnabled, boolean silentMode, boolean mobileDataEnabled) {
         this.latitude = latitude;
@@ -34,6 +35,7 @@ public class Zone implements Parcelable {
         silentMode = in.readByte() != 0;
         mobileDataEnabled = in.readByte() != 0;
         dataPoints = in.createTypedArrayList(DataPoint.CREATOR);
+        isVehicleZone = in.readByte() != 0;
     }
 
     public static final Creator<Zone> CREATOR = new Creator<Zone>() {
@@ -62,6 +64,7 @@ public class Zone implements Parcelable {
         dest.writeByte((byte) (silentMode ? 1 : 0));
         dest.writeByte((byte) (mobileDataEnabled ? 1 : 0));
         dest.writeTypedList(dataPoints);
+        dest.writeByte((byte) (isVehicleZone ? 1 : 0));
     }
 
     public void addPoint(DataPoint point) {
@@ -119,5 +122,13 @@ public class Zone implements Parcelable {
 
     public void setMobileDataEnabled(boolean mobileDataEnabled) {
         this.mobileDataEnabled = mobileDataEnabled;
+    }
+
+    public void setVehicleZone(boolean isVehicleZone) {
+        this.isVehicleZone = isVehicleZone;
+    }
+
+    public boolean isVehicleZone() {
+        return isVehicleZone;
     }
 } 
