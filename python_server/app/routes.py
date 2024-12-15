@@ -73,10 +73,10 @@ def predict_settings():
         latitude = data.get("latitude")
         altitude = data.get("altitude")
         speed = data.get("speed")
-        logging.error(f"data serialized\n longitude: {longitude}, 
-                      latitude: {latitude}, 
-                      altitude: {altitude}, 
-                      speed: {speed}")
+        logging.error("data serialized")
+        logging.error(
+            f"longitude: {longitude}, latitude: {latitude}, altitude: {altitude}, speed: {speed}"
+        )
 
         # Define the path to the result.json file
         json_file_path = "app/src/main/assets/results.json"
